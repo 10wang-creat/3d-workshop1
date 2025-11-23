@@ -1,11 +1,7 @@
-# 網站基本資訊
 title: 3D創想工坊
 description: 專業3D列印服務
-
-# 聯絡資訊
-phone: "0900-012-110"
+phone: 0900-012-110
 email: sstarfly@gmail.com
 line_id: spg
-
-# Jekyll設定
-markdown: kramdown
+baseurl: "/3d-workshop1"
+url: "https://10wang-creat.github.io"
