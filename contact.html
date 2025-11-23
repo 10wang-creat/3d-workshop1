@@ -1,0 +1,163 @@
+---
+layout: default
+title: 聯絡我們
+---
+
+<style>
+.contact-section{padding:3rem 0;max-width:800px;margin:0 auto}
+.contact-title{text-align:center;font-size:2.5rem;color:#333;margin-bottom:1rem;position:relative;display:inline-block;left:50%;transform:translateX(-50%)}
+.contact-title::after{content:'';position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:80px;height:4px;background:linear-gradient(90deg,#667eea,#764ba2);border-radius:2px}
+.contact-intro{text-align:center;color:#666;font-size:1.1rem;margin:2rem 0 3rem;line-height:1.8}
+
+.contact-methods{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;margin-bottom:3rem}
+.contact-method{background:white;padding:2rem;border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,0.08);text-align:center;transition:all 0.3s ease}
+.contact-method:hover{transform:translateY(-5px);box-shadow:0 10px 30px rgba(102,126,234,0.15)}
+.method-icon{font-size:3rem;margin-bottom:1rem}
+.method-title{font-size:1.2rem;color:#333;font-weight:bold;margin-bottom:0.5rem}
+.method-link{display:inline-block;margin-top:1rem;padding:10px 20px;background:linear-gradient(135deg,#667eea,#764ba2);color:white;text-decoration:none;border-radius:25px;font-weight:600;transition:all 0.3s ease}
+.method-link:hover{transform:scale(1.05)}
+
+.form-container{background:white;padding:3rem;border-radius:20px;box-shadow:0 10px 40px rgba(0,0,0,0.1)}
+.form-title{font-size:1.8rem;color:#333;margin-bottom:2rem;text-align:center}
+.form-group{margin-bottom:1.5rem}
+.form-label{display:block;font-weight:600;color:#333;margin-bottom:0.5rem}
+.form-input,.form-textarea,.form-select{width:100%;padding:12px 15px;border:2px solid #e0e0e0;border-radius:10px;font-size:1rem;transition:all 0.3s ease;font-family:'Microsoft JhengHei',Arial,sans-serif}
+.form-input:focus,.form-textarea:focus,.form-select:focus{outline:none;border-color:#667eea;box-shadow:0 0 0 3px rgba(102,126,234,0.1)}
+.form-textarea{resize:vertical;min-height:120px}
+.form-submit{width:100%;padding:15px;background:linear-gradient(135deg,#667eea,#764ba2);color:white;border:none;border-radius:50px;font-size:1.1rem;font-weight:bold;cursor:pointer;transition:all 0.3s ease}
+.form-submit:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(102,126,234,0.3)}
+.form-submit:disabled{background:#ccc;cursor:not-allowed;transform:none}
+
+.success-message{display:none;background:linear-gradient(135deg,#43e97b,#38f9d7);color:white;padding:1.5rem;border-radius:15px;text-align:center;font-size:1.1rem;margin-top:1rem}
+.success-message.show{display:block}
+
+@media (max-width:768px){
+  .contact-title{font-size:2rem}
+  .form-container{padding:2rem 1.5rem}
+  .contact-methods{grid-template-columns:1fr}
+}
+</style>
+
+<section class="contact-section">
+  <h1 class="contact-title">聯絡我們</h1>
+  <p class="contact-intro">
+    歡迎透過以下方式與我們聯繫,我們將在 24 小時內回覆您的詢問
+  </p>
+
+  <!-- 快速聯絡方式 -->
+  <div class="contact-methods">
+    <div class="contact-method">
+      <div class="method-icon">💬</div>
+      <h3 class="method-title">LINE 即時諮詢</h3>
+      <p style="color:#666;font-size:0.9rem;margin:0.5rem 0">最快速的聯絡方式</p>
+      <a href="https://line.me/ti/p/spg" target="_blank" class="method-link" style="background:linear-gradient(135deg,#00C300,#00B900)">加入 LINE</a>
+    </div>
+
+    <div class="contact-method">
+      <div class="method-icon">📞</div>
+      <h3 class="method-title">電話諮詢</h3>
+      <p style="color:#666;font-size:0.9rem;margin:0.5rem 0">0900-012-110</p>
+      <a href="tel:0900012110" class="method-link">立即撥打</a>
+    </div>
+
+    <div class="contact-method">
+      <div class="method-icon">📧</div>
+      <h3 class="method-title">Email</h3>
+      <p style="color:#666;font-size:0.9rem;margin:0.5rem 0">sstarfly@gmail.com</p>
+      <a href="mailto:sstarfly@gmail.com" class="method-link" style="background:linear-gradient(135deg,#f093fb,#f5576c)">發送郵件</a>
+    </div>
+  </div>
+
+  <!-- 聯絡表單 -->
+  <div class="form-container">
+    <h2 class="form-title">📝 線上詢問表單</h2>
+    
+    <form id="contactForm" action="https://formspree.io/f/mvgyygjd" method="POST">
+      <div class="form-group">
+        <label class="form-label" for="name">姓名 *</label>
+        <input type="text" id="name" name="name" class="form-input" required placeholder="請輸入您的姓名">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="email">Email *</label>
+        <input type="email" id="email" name="email" class="form-input" required placeholder="example@email.com">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="phone">電話</label>
+        <input type="tel" id="phone" name="phone" class="form-input" placeholder="0900-000-000">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="service">服務類型</label>
+        <select id="service" name="service" class="form-select">
+          <option value="">請選擇服務類型</option>
+          <option value="3D設計">3D設計建模</option>
+          <option value="3D列印">3D列印服務</option>
+          <option value="客製化治具">客製化治具製作</option>
+          <option value="功能配件">功能配件製作</option>
+          <option value="逆向工程">逆向工程</option>
+          <option value="其他">其他諮詢</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="message">詳細需求 *</label>
+        <textarea id="message" name="message" class="form-textarea" required placeholder="請描述您的需求,例如:&#10;- 產品用途&#10;- 預期尺寸&#10;- 數量&#10;- 交期需求"></textarea>
+      </div>
+
+      <button type="submit" class="form-submit">送出詢問</button>
+    </form>
+
+    <div id="successMessage" class="success-message">
+      ✅ 感謝您的詢問!我們已收到您的訊息,將在 24 小時內回覆您。
+    </div>
+  </div>
+</section>
+
+<script>
+// 表單提交處理
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  const form = this;
+  const submitBtn = form.querySelector('.form-submit');
+  const successMessage = document.getElementById('successMessage');
+  
+  // 停用按鈕
+  submitBtn.disabled = true;
+  submitBtn.textContent = '送出中...';
+  
+  // 使用 fetch 送出表單
+  fetch(form.action, {
+    method: form.method,
+    body: new FormData(form),
+    headers: {
+      'Accept': 'application/json'
+    }
+  }).then(response => {
+    if (response.ok) {
+      // 成功
+      form.reset();
+      successMessage.classList.add('show');
+      submitBtn.textContent = '送出成功!';
+      
+      // 3秒後恢復
+      setTimeout(() => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = '送出詢問';
+        successMessage.classList.remove('show');
+      }, 3000);
+    } else {
+      // 失敗
+      alert('送出失敗,請稍後再試或直接聯繫我們。');
+      submitBtn.disabled = false;
+      submitBtn.textContent = '送出詢問';
+    }
+  }).catch(error => {
+    alert('發生錯誤,請稍後再試。');
+    submitBtn.disabled = false;
+    submitBtn.textContent = '送出詢問';
+  });
+});
+</script>
