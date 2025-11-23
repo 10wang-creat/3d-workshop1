@@ -1,0 +1,111 @@
+- id: 1
+  title: 檢驗載體製作
+  category: production
+  category_name: 客製化治具
+  description: 專業的產品檢驗載體,具有精確的凹槽設計,可將產品固定在特定位置進行掃描檢驗
+  image: inspection-carrier.jpg
+
+- id: 2
+  title: 車泊排風扇 - 可調風向
+  category: functional
+  category_name: 功能配件
+  description: 專為車泊生活設計的排風扇配件,具備可調式上下風向功能
+  image: van-fan-adjustable.jpg
+
+- id: 3
+  title: 車泊排風扇 - 晴雨罩
+  category: functional
+  category_name: 功能配件
+  description: 專業的車泊排風扇晴雨罩設計,有效防止雨水進入車內同時保持良好通風效果
+  image: van-fan-rain-cover.jpg
+
+- id: 4
+  title: 雙手錶充電器
+  category: functional
+  category_name: 功能配件
+  description: 專業的雙手錶充電座,可同時為兩支智慧手錶充電
+  image: dual-watch-charger.jpg
+
+- id: 5
+  title: 瓦斯爐防油蓋
+  category: functional
+  category_name: 功能配件
+  description: 實用的瓦斯爐開關防油噴濺保護蓋,有效防止烹飪時油脂濺到開關旋鈕上
+  image: stove-oil-cover.jpg
+
+- id: 6
+  title: 多功能收納盒
+  category: functional
+  category_name: 功能配件
+  description: 創新設計的多功能收納盒,採用可拆式隔板設計,可依需求調整內部空間
+  image: multi-storage-box.jpg
+
+- id: 7
+  title: 車內杯架組
+  category: functional
+  category_name: 功能配件
+  description: 專業的車內置物杯架,特殊設計可完美容納方形飲料瓶
+  image: car-cup-holder.jpg
+
+- id: 8
+  title: Switch充電散熱座
+  category: functional
+  category_name: 功能配件
+  description: 專為Nintendo Switch設計的充電散熱座,具備散熱孔設計有效降低主機溫度
+  image: switch-cooling-stand.jpg
+
+- id: 9
+  title: 強力吹風機
+  category: functional
+  category_name: 功能配件
+  description: 專業級強力吹風機設計,黑色機身搭配黃色風扇罩,具備可調節風向功能
+  image: power-fan.jpg
+
+- id: 10
+  title: 螺旋造型模型
+  category: creative
+  category_name: 創意造型
+  description: 純粹的螺旋幾何造型模型,展現3D列印在複雜幾何結構上的精準表現
+  image: spiral-model.jpg
+
+- id: 11
+  title: 六角多肉植物盆
+  category: decorative
+  category_name: 居家裝飾
+  description: 時尚六角造型多肉植物盆,採用幾何美學設計,完美展現現代簡約風格
+  image: hexagon-planter.jpg
+
+- id: 12
+  title: 浴室置物架
+  category: functional
+  category_name: 功能配件
+  description: 實用的浴室牆面置物架,雙層圓形設計提供充足收納空間
+  image: bathroom-shelf.jpg
+
+- id: 13
+  title: 肥皂瀝水架
+  category: functional
+  category_name: 功能配件
+  description: 簡約實用的肥皂瀝水架,流線型設計確保良好的排水效果
+  image: soap-drainer.jpg
+
+- id: 14
+  title: 橢圓機手機架
+  category: functional
+  category_name: 功能配件
+  description: 專為橢圓機設計的手機支架,具備蜂窩孔洞透氣設計,有效防止手機過熱
+  image: elliptical-phone-holder.jpg
+
+- id: 15
+  title: 透氣收納盒
+  category: functional
+  category_name: 功能配件
+  description: 實用的透氣式收納盒,規律的圓形孔洞設計不僅美觀,更提供良好的通風效果
+  image: ventilated-storage.jpg
+
+- id: 16
+  title: 任天堂問號方塊
+  category: functional
+  category_name: 功能配件
+  description: 經典瑪利歐遊戲中的問號方塊,不僅是裝飾品更是實用的收納盒
+  image: mario-question-block.jpg

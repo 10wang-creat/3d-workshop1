@@ -1,0 +1,37 @@
+---
+layout: default
+title: 作品集
+---
+
+<style>
+.portfolio{padding:3rem 0}.portfolio-title{text-align:center;font-size:2.5rem;color:#333;margin-bottom:3rem;position:relative}.portfolio-title::after{content:'';display:block;width:80px;height:4px;background:linear-gradient(90deg,#667eea,#764ba2);margin:1rem auto 0;border-radius:2px}.portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem;margin:0 auto}.portfolio-card{background:white;border-radius:15px;overflow:hidden;box-shadow:0 5px 20px rgba(0,0,0,0.08);transition:all 0.3s ease;cursor:pointer}.portfolio-card:hover{transform:translateY(-10px);box-shadow:0 15px 40px rgba(102,126,234,0.15)}.portfolio-image{width:100%;height:220px;position:relative;overflow:hidden}.portfolio-image img{width:100%;height:100%;object-fit:cover}image-placeholder{width:100%;height:100%;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);display:flex;align-items:center;justify-content:center}.placeholder-icon{font-size:4rem;opacity:0.3}.portfolio-content{padding:1.5rem}.category-badge{display:inline-block;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:600;margin-bottom:1rem}.category-production{background:linear-gradient(135deg,#fa709a 0%,#fee140 100%);color:white}.category-functional{background:linear-gradient(135deg,#4facfe 0%,#00f2fe 100%);color:white}.category-creative{background:linear-gradient(135deg,#f093fb 0%,#f5576c 100%);color:white}.category-decorative{background:linear-gradient(135deg,#43e97b 0%,#38f9d7 100%);color:white}.portfolio-item-title{font-size:1.4rem;color:#333;margin-bottom:0.8rem;font-weight:700}.portfolio-description{color:#666;font-size:0.95rem;line-height:1.6}@media (max-width:768px){.portfolio-grid{grid-template-columns:1fr;gap:1.5rem}.portfolio-title{font-size:2rem}.portfolio-image{height:180px}}
+</style>
+
+<section class="portfolio">
+    <h2 class="portfolio-title">精選作品集</h2>
+    
+    <div class="portfolio-grid">
+        {% for item in site.data.portfolio %}
+        <div class="portfolio-card">
+            <div class="portfolio-image">
+                {% if item.image %}
+                    <img src="{{ site.baseurl }}/assets/images/{{ item.image }}" alt="{{ item.title }}">
+                {% else %}
+                    <div class="image-placeholder">
+                        <span class="placeholder-icon">📦</span>
+                    </div>
+                {% endif %}
+             </div>
+            
+            <div class="portfolio-content">
+                <span class="category-badge category-{{ item.category }}">
+                    {{ item.category_name }}
+                </span>
+                
+                <h3 class="portfolio-item-title">{{ item.title }}</h3>
+                <p class="portfolio-description">{{ item.description }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>

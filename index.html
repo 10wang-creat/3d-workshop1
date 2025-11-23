@@ -1,0 +1,78 @@
+---
+layout: default
+title: 首頁
+---
+
+<style>
+/* Call to Action 區塊 */
+.cta {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    margin: 3rem 0;
+    border-radius: 15px;
+    color: white;
+}
+
+.cta h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.cta p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+}
+
+/* 作品集按鈕 */
+.btn-portfolio {
+    display: inline-block;
+    background: white;
+    color: #f5576c;
+    padding: 15px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.btn-portfolio:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+    background: #fff;
+}
+</style>
+
+<section class="hero">
+    <h2>從概念到實體，創新3D列印方案</h2>
+    <p>專業3D繪圖設計：從概念構想到3D建模，專業技術協助實現創意</p>
+    <p>客製化設計開發：個性化3D繪圖設計，打造獨特產品方案</p>
+    <p>一站式服務：3D繪圖設計 + 專業列印，完整解決方案</p>
+</section>
+
+<section class="features">
+    <h3>我們的服務</h3>
+    <ul>
+        <li>🎨 3D繪圖設計 - 專業CAD建模</li>
+        <li>⚡ 快速交付 - 24-72小時</li>
+        <li>🔧 多種材料 - PLA, ABS, PETG, 樹脂</li>
+        <li>📐 高精度 - ±0.1mm精度保證</li>
+    </ul>
+</section>
+
+<section class="cta">
+    <h3>查看我們的精選作品</h3>
+    <p>專業3D列印作品，從檢驗治具到生活用品</p>
+    <a href="portfolio.html" class="btn-portfolio">瀏覽作品集 →</a>
+</section>
+
+<section class="contact" id="contact">
+    <h3>聯絡我們</h3>
+    <p>📞 電話: {{ site.phone }}</p>
+    <p>📧 Email: {{ site.email }}</p>
+    <p>💬 LINE: {{ site.line_id }}</p>
+</section>
