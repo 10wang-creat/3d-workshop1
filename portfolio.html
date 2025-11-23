@@ -4,15 +4,44 @@ title: 作品集
 ---
 
 <style>
-.portfolio{padding:3rem 0}.portfolio-title{text-align:center;font-size:2.5rem;color:#333;margin-bottom:3rem;position:relative}.portfolio-title::after{content:'';display:block;width:80px;height:4px;background:linear-gradient(90deg,#667eea,#764ba2);margin:1rem auto 0;border-radius:2px}.portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem;margin:0 auto}.portfolio-card{background:white;border-radius:15px;overflow:hidden;box-shadow:0 5px 20px rgba(0,0,0,0.08);transition:all 0.3s ease;cursor:pointer}.portfolio-card:hover{transform:translateY(-10px);box-shadow:0 15px 40px rgba(102,126,234,0.15)}.portfolio-image{width:100%;height:220px;position:relative;overflow:hidden}.portfolio-image img{width:100%;height:100%;object-fit:cover}image-placeholder{width:100%;height:100%;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);display:flex;align-items:center;justify-content:center}.placeholder-icon{font-size:4rem;opacity:0.3}.portfolio-content{padding:1.5rem}.category-badge{display:inline-block;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:600;margin-bottom:1rem}.category-production{background:linear-gradient(135deg,#fa709a 0%,#fee140 100%);color:white}.category-functional{background:linear-gradient(135deg,#4facfe 0%,#00f2fe 100%);color:white}.category-creative{background:linear-gradient(135deg,#f093fb 0%,#f5576c 100%);color:white}.category-decorative{background:linear-gradient(135deg,#43e97b 0%,#38f9d7 100%);color:white}.portfolio-item-title{font-size:1.4rem;color:#333;margin-bottom:0.8rem;font-weight:700}.portfolio-description{color:#666;font-size:0.95rem;line-height:1.6}@media (max-width:768px){.portfolio-grid{grid-template-columns:1fr;gap:1.5rem}.portfolio-title{font-size:2rem}.portfolio-image{height:180px}}
+.portfolio{padding:3rem 0}.portfolio-title{text-align:center;font-size:2.5rem;color:#333;margin-bottom:2rem;position:relative}.portfolio-title::after{content:'';display:block;width:80px;height:4px;background:linear-gradient(90deg,#667eea,#764ba2);margin:1rem auto 0;border-radius:2px}
+
+/* 篩選按鈕區 */
+.filter-container{text-align:center;margin-bottom:3rem}.filter-btn{display:inline-block;padding:10px 20px;margin:5px;border:2px solid #667eea;background:white;color:#667eea;border-radius:25px;cursor:pointer;font-weight:600;font-size:0.9rem;transition:all 0.3s ease}.filter-btn:hover{background:#667eea;color:white;transform:translateY(-2px)}.filter-btn.active{background:linear-gradient(135deg,#667eea,#764ba2);color:white;border-color:transparent}
+
+.portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem;margin:0 auto}.portfolio-card{background:white;border-radius:15px;overflow:hidden;box-shadow:0 5px 20px rgba(0,0,0,0.08);transition:all 0.3s ease;cursor:pointer}.portfolio-card:hover{transform:translateY(-10px);box-shadow:0 15px 40px rgba(102,126,234,0.15)}.portfolio-card.hidden{display:none}
+
+.portfolio-image{width:100%;height:220px;position:relative;overflow:hidden}.portfolio-image img{width:100%;height:100%;object-fit:cover}.image-placeholder{width:100%;height:100%;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);display:flex;align-items:center;justify-content:center}.placeholder-icon{font-size:4rem;opacity:0.3}
+
+.portfolio-content{padding:1.5rem}.category-badge{display:inline-block;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:600;margin-bottom:1rem}.category-production{background:linear-gradient(135deg,#fa709a 0%,#fee140 100%);color:white}.category-functional{background:linear-gradient(135deg,#4facfe 0%,#00f2fe 100%);color:white}.category-creative{background:linear-gradient(135deg,#f093fb 0%,#f5576c 100%);color:white}.category-decorative{background:linear-gradient(135deg,#43e97b 0%,#38f9d7 100%);color:white}
+
+.portfolio-item-title{font-size:1.4rem;color:#333;margin-bottom:0.8rem;font-weight:700}.portfolio-description{color:#666;font-size:0.95rem;line-height:1.6}
+
+/* 作品數量顯示 */
+.result-count{text-align:center;color:#666;font-size:1rem;margin-bottom:1rem;min-height:24px}
+
+@media (max-width:768px){.portfolio-grid{grid-template-columns:1fr;gap:1.5rem}.portfolio-title{font-size:2rem}.portfolio-image{height:180px}.filter-btn{padding:8px 16px;font-size:0.85rem}}
 </style>
 
 <section class="portfolio">
     <h2 class="portfolio-title">精選作品集</h2>
     
-    <div class="portfolio-grid">
+    <!-- 篩選按鈕 -->
+    <div class="filter-container">
+        <button class="filter-btn active" onclick="filterPortfolio('all')">全部作品</button>
+        <button class="filter-btn" onclick="filterPortfolio('functional')">🔧 功能配件</button>
+        <button class="filter-btn" onclick="filterPortfolio('production')">🏭 客製化治具</button>
+        <button class="filter-btn" onclick="filterPortfolio('decorative')">🏠 居家裝飾</button>
+        <button class="filter-btn" onclick="filterPortfolio('creative')">🎨 創意造型</button>
+    </div>
+    
+    <!-- 顯示作品數量 -->
+    <div class="result-count" id="resultCount">顯示全部 16 件作品</div>
+    
+    <!-- 作品網格 -->
+    <div class="portfolio-grid" id="portfolioGrid">
         {% for item in site.data.portfolio %}
-        <div class="portfolio-card">
+        <div class="portfolio-card" data-category="{{ item.category }}">
             <div class="portfolio-image">
                 {% if item.image %}
                     <img src="{{ site.baseurl }}/assets/images/{{ item.image }}" alt="{{ item.title }}">
@@ -21,7 +50,7 @@ title: 作品集
                         <span class="placeholder-icon">📦</span>
                     </div>
                 {% endif %}
-             </div>
+            </div>
             
             <div class="portfolio-content">
                 <span class="category-badge category-{{ item.category }}">
@@ -35,3 +64,45 @@ title: 作品集
         {% endfor %}
     </div>
 </section>
+
+<script>
+// 篩選作品函數
+function filterPortfolio(category) {
+    const cards = document.querySelectorAll('.portfolio-card');
+    const buttons = document.querySelectorAll('.filter-btn');
+    const resultCount = document.getElementById('resultCount');
+    
+    // 更新按鈕狀態
+    buttons.forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+    
+    let visibleCount = 0;
+    
+    // 篩選卡片
+    cards.forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+            card.classList.remove('hidden');
+            visibleCount++;
+        } else {
+            card.classList.add('hidden');
+        }
+    });
+    
+    // 更新顯示的作品數量
+    const categoryNames = {
+        'all': '全部',
+        'functional': '功能配件',
+        'production': '客製化治具',
+        'decorative': '居家裝飾',
+        'creative': '創意造型'
+    };
+    
+    resultCount.textContent = `顯示${categoryNames[category]} ${visibleCount} 件作品`;
+    
+    // 平滑滾動到作品區
+    document.getElementById('portfolioGrid').scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start' 
+    });
+}
+</script>
