@@ -1,0 +1,158 @@
+---
+layout: default
+title: 知識庫
+description: "3D列印知識分享：材料選擇、設計技巧、產業應用案例。幫助您更了解3D列印技術。"
+---
+
+<style>
+.blog-section {
+    padding: 3rem 0;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.blog-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.blog-header-tag {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 0.8rem;
+    color: #00d4aa;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 0.8rem;
+    display: block;
+}
+
+.blog-header h1 {
+    font-size: 2.5rem;
+    color: #e8e8ec;
+    margin-bottom: 1rem;
+    font-weight: 900;
+}
+
+.blog-header p {
+    color: #8888a0;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.blog-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.blog-item {
+    background: #1a1a26;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.blog-item:hover {
+    border-color: rgba(0,212,170,0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.blog-item-meta {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.blog-item-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #00d4aa;
+    background: rgba(0,212,170,0.12);
+    padding: 0.25rem 0.75rem;
+    border-radius: 100px;
+}
+
+.blog-item-date {
+    font-size: 0.82rem;
+    color: #55556a;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.blog-item-reading {
+    font-size: 0.82rem;
+    color: #55556a;
+}
+
+.blog-item h2 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #e8e8ec;
+    margin-bottom: 0.8rem;
+    line-height: 1.4;
+}
+
+.blog-item p {
+    color: #8888a0;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.blog-item-read {
+    color: #00d4aa;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.blog-empty {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: #55556a;
+}
+
+@media (max-width: 768px) {
+    .blog-header h1 { font-size: 2rem; }
+    .blog-item { padding: 1.5rem; }
+    .blog-item h2 { font-size: 1.2rem; }
+}
+</style>
+
+<section class="blog-section">
+    <div class="blog-header">
+        <span class="blog-header-tag">Knowledge Base</span>
+        <h1>3D列印知識庫</h1>
+        <p>材料選擇、設計技巧、產業應用⋯⋯<br>幫助您更了解3D列印，做出更好的決策</p>
+    </div>
+
+    <div class="blog-list">
+        {% assign sorted_posts = site.posts | sort: 'date' | reverse %}
+        {% for post in sorted_posts %}
+        <a href="{{ site.baseurl }}{{ post.url }}" class="blog-item">
+            <div class="blog-item-meta">
+                <span class="blog-item-tag">{{ post.category }}</span>
+                <span class="blog-item-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+                {% if post.reading_time %}
+                <span class="blog-item-reading">⏱ {{ post.reading_time }} 分鐘</span>
+                {% endif %}
+            </div>
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.excerpt | strip_html | truncate: 120 }}</p>
+            <span class="blog-item-read">閱讀全文 →</span>
+        </a>
+        {% endfor %}
+    </div>
+
+    {% if site.posts.size == 0 %}
+    <div class="blog-empty">
+        <p>文章準備中，敬請期待！</p>
+    </div>
+    {% endif %}
+</section>
