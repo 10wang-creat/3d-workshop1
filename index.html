@@ -493,12 +493,16 @@
         }
 
         .p-image-inner {
-            width: 100%;
-            height: 100%;
+            position: absolute;
+            inset: 0;
             background-size: cover;
             background-position: center;
             transition: transform 0.4s;
+            z-index: 2;
+            display: none;
         }
+
+        .p-image-inner.loaded { display: block; }
 
         .portfolio-card:hover .p-image-inner {
             transform: scale(1.05);
@@ -508,10 +512,24 @@
             width: 100%;
             height: 100%;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            font-size: 3.5rem;
-            opacity: 0.15;
+            gap: 0.8rem;
+            z-index: 1;
+        }
+
+        .p-placeholder-icon {
+            font-size: 3rem;
+            opacity: 0.5;
+        }
+
+        .p-placeholder-text {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.35);
+            font-weight: 500;
+            text-align: center;
+            padding: 0 1rem;
         }
 
         .p-cat-colors {
@@ -1371,22 +1389,22 @@
 <script>
 // ==================== DATA ====================
 const portfolio = [
-    { id:1, title:'檢驗載體製作', cat:'production', catName:'客製化治具', desc:'專業的產品檢驗載體，具有精確的凹槽設計，可將產品固定在特定位置進行掃描檢驗。確保檢驗過程的一致性和準確性。', specs:['高精度樹脂','精密定位','品質檢驗','客製設計'], img:'images/inspection-carrier.jpg', icon:'🏭' },
-    { id:2, title:'車泊排風扇 - 可調風向', cat:'functional', catName:'功能配件', desc:'專為車泊生活設計的排風扇配件，具備可調式上下風向功能。綠色部分採用活動設計，可依需求調整通風角度。', specs:['PLA+材質','可調風向','車泊專用','耐候設計'], img:'images/van-fan-adjustable.jpg', icon:'🔧' },
-    { id:3, title:'車泊排風扇 - 晴雨罩', cat:'functional', catName:'功能配件', desc:'車泊排風扇晴雨罩設計，有效防止雨水進入車內同時保持良好通風。雙通風口設計確保空氣流通順暢。', specs:['ABS材質','防雨設計','雙通風口','霧面處理'], img:'images/van-fan-rain-cover.jpg', icon:'🔧' },
-    { id:4, title:'雙手錶充電器', cat:'functional', catName:'功能配件', desc:'雙手錶充電座，可同時為兩支智慧手錶充電。圓形凹槽完美貼合手錶，穩固不滑落。', specs:['PLA+材質','雙錶充電','防滑設計','桌面整理'], img:'images/dual-watch-charger.jpg', icon:'🔧' },
-    { id:5, title:'瓦斯爐防油蓋', cat:'functional', catName:'功能配件', desc:'瓦斯爐開關防油噴濺保護蓋，有效防止烹飪時油脂濺到開關旋鈕上，讓清潔更輕鬆。', specs:['耐熱ABS','防油設計','易清潔','廚房專用'], img:'images/stove-oil-cover.jpg', icon:'🔧' },
-    { id:6, title:'多功能收納盒', cat:'functional', catName:'功能配件', desc:'可拆式隔板設計，可依需求調整內部空間。前方設有專用小隔板收納槽。', specs:['PLA+材質','可拆隔板','模組設計','多功能'], img:'images/multi-storage-box.jpg', icon:'🔧' },
-    { id:7, title:'車內杯架組', cat:'functional', catName:'功能配件', desc:'特殊設計可完美容納方形飲料瓶。幾何花紋底部提供防滑效果，確保行車安全。', specs:['ABS材質','防滑花紋','方瓶專用','模組設計'], img:'images/car-cup-holder.jpg', icon:'🔧' },
-    { id:8, title:'Switch充電散熱座', cat:'functional', catName:'功能配件', desc:'專為 Nintendo Switch 設計的充電散熱座，散熱孔有效降低主機溫度，同時支援穩定充電。', specs:['PLA+材質','散熱設計','Type-C充電','防滑底座'], img:'images/switch-cooling-stand.jpg', icon:'🔧' },
-    { id:9, title:'強力吹風機', cat:'functional', catName:'功能配件', desc:'專業級強力吹風機，黑色機身搭配黃色風扇罩，具備可調節風向功能，配備電池底座。', specs:['ABS外殼','可調風向','無線設計','輕量化'], img:'images/power-fan.jpg', icon:'🔧' },
-    { id:10, title:'螺旋造型模型', cat:'creative', catName:'創意造型', desc:'純粹的螺旋幾何造型，展現3D列印在複雜結構上的精準表現。流暢螺旋線條一體成型，無需支撐材料。', specs:['PLA材質','螺旋造型','一體成型','無支撐列印'], img:'images/spiral-model.jpg', icon:'🎨' },
-    { id:11, title:'六角多肉植物盆', cat:'decorative', catName:'居家裝飾', desc:'時尚六角造型多肉植物盆，幾何美學設計，黑色霧面質感搭配任何居家環境。', specs:['PLA+材質','霧面後處理','排水孔設計','環保材料'], img:'images/hexagon-planter.jpg', icon:'🏠' },
-    { id:12, title:'浴室置物架', cat:'functional', catName:'功能配件', desc:'浴室牆面置物架，雙層圓形設計提供充足收納空間。灰色霧面質感防水耐潮。', specs:['PETG材質','防水設計','雙層收納','牆面安裝'], img:'images/bathroom-shelf.jpg', icon:'🔧' },
-    { id:13, title:'肥皂瀝水架', cat:'functional', catName:'功能配件', desc:'簡約肥皂瀝水架，流線型設計確保良好排水。防滑底座穩固耐用。', specs:['PETG材質','防滑設計','快速排水','抗菌處理'], img:'images/soap-drainer.jpg', icon:'🔧' },
-    { id:14, title:'橢圓機手機架', cat:'functional', catName:'功能配件', desc:'橢圓機專用手機支架，蜂窩孔洞透氣設計有效防止手機過熱。可調角度適合不同尺寸手機。', specs:['PLA+材質','透氣設計','可調角度','運動專用'], img:'images/elliptical-phone-holder.jpg', icon:'🔧' },
-    { id:15, title:'透氣收納盒', cat:'functional', catName:'功能配件', desc:'透氣式收納盒，規律圓形孔洞設計兼具美觀與通風效果。', specs:['PLA+材質','透氣設計','收納功能','簡約風格'], img:'images/ventilated-storage.jpg', icon:'🔧' },
-    { id:16, title:'問號方塊收納盒', cat:'creative', catName:'創意造型', desc:'經典遊戲問號方塊造型，不僅是裝飾品更是實用收納盒。精確卡扣設計，開合順暢。', specs:['ABS材質','卡扣機構','收納功能','遊戲週邊'], img:'images/mario-question-block.jpg', icon:'🎨' }
+    { id:1, title:'檢驗載體製作', cat:'production', catName:'客製化治具', desc:'專業的產品檢驗載體，具有精確的凹槽設計，可將產品固定在特定位置進行掃描檢驗。確保檢驗過程的一致性和準確性。', specs:['高精度樹脂','精密定位','品質檢驗','客製設計'], img:'assets/images/inspection-carrier.jpg', icon:'🏭' },
+    { id:2, title:'車泊排風扇 - 可調風向', cat:'functional', catName:'功能配件', desc:'專為車泊生活設計的排風扇配件，具備可調式上下風向功能。綠色部分採用活動設計，可依需求調整通風角度。', specs:['PLA+材質','可調風向','車泊專用','耐候設計'], img:'assets/images/van-fan-adjustable.jpg', icon:'🔧' },
+    { id:3, title:'車泊排風扇 - 晴雨罩', cat:'functional', catName:'功能配件', desc:'車泊排風扇晴雨罩設計，有效防止雨水進入車內同時保持良好通風。雙通風口設計確保空氣流通順暢。', specs:['ABS材質','防雨設計','雙通風口','霧面處理'], img:'assets/images/van-fan-rain-cover.jpg', icon:'🔧' },
+    { id:4, title:'雙手錶充電器', cat:'functional', catName:'功能配件', desc:'雙手錶充電座，可同時為兩支智慧手錶充電。圓形凹槽完美貼合手錶，穩固不滑落。', specs:['PLA+材質','雙錶充電','防滑設計','桌面整理'], img:'assets/images/dual-watch-charger.jpg', icon:'🔧' },
+    { id:5, title:'瓦斯爐防油蓋', cat:'functional', catName:'功能配件', desc:'瓦斯爐開關防油噴濺保護蓋，有效防止烹飪時油脂濺到開關旋鈕上，讓清潔更輕鬆。', specs:['耐熱ABS','防油設計','易清潔','廚房專用'], img:'assets/images/stove-oil-cover.jpg', icon:'🔧' },
+    { id:6, title:'多功能收納盒', cat:'functional', catName:'功能配件', desc:'可拆式隔板設計，可依需求調整內部空間。前方設有專用小隔板收納槽。', specs:['PLA+材質','可拆隔板','模組設計','多功能'], img:'assets/images/multi-storage-box.jpg', icon:'🔧' },
+    { id:7, title:'車內杯架組', cat:'functional', catName:'功能配件', desc:'特殊設計可完美容納方形飲料瓶。幾何花紋底部提供防滑效果，確保行車安全。', specs:['ABS材質','防滑花紋','方瓶專用','模組設計'], img:'assets/images/car-cup-holder.jpg', icon:'🔧' },
+    { id:8, title:'Switch充電散熱座', cat:'functional', catName:'功能配件', desc:'專為 Nintendo Switch 設計的充電散熱座，散熱孔有效降低主機溫度，同時支援穩定充電。', specs:['PLA+材質','散熱設計','Type-C充電','防滑底座'], img:'assets/images/switch-cooling-stand.jpg', icon:'🔧' },
+    { id:9, title:'強力吹風機', cat:'functional', catName:'功能配件', desc:'專業級強力吹風機，黑色機身搭配黃色風扇罩，具備可調節風向功能，配備電池底座。', specs:['ABS外殼','可調風向','無線設計','輕量化'], img:'assets/images/power-fan.jpg', icon:'🔧' },
+    { id:10, title:'螺旋造型模型', cat:'creative', catName:'創意造型', desc:'純粹的螺旋幾何造型，展現3D列印在複雜結構上的精準表現。流暢螺旋線條一體成型，無需支撐材料。', specs:['PLA材質','螺旋造型','一體成型','無支撐列印'], img:'assets/images/spiral-model.jpg', icon:'🎨' },
+    { id:11, title:'六角多肉植物盆', cat:'decorative', catName:'居家裝飾', desc:'時尚六角造型多肉植物盆，幾何美學設計，黑色霧面質感搭配任何居家環境。', specs:['PLA+材質','霧面後處理','排水孔設計','環保材料'], img:'assets/images/hexagon-planter.jpg', icon:'🏠' },
+    { id:12, title:'浴室置物架', cat:'functional', catName:'功能配件', desc:'浴室牆面置物架，雙層圓形設計提供充足收納空間。灰色霧面質感防水耐潮。', specs:['PETG材質','防水設計','雙層收納','牆面安裝'], img:'assets/images/bathroom-shelf.jpg', icon:'🔧' },
+    { id:13, title:'肥皂瀝水架', cat:'functional', catName:'功能配件', desc:'簡約肥皂瀝水架，流線型設計確保良好排水。防滑底座穩固耐用。', specs:['PETG材質','防滑設計','快速排水','抗菌處理'], img:'assets/images/soap-drainer.jpg', icon:'🔧' },
+    { id:14, title:'橢圓機手機架', cat:'functional', catName:'功能配件', desc:'橢圓機專用手機支架，蜂窩孔洞透氣設計有效防止手機過熱。可調角度適合不同尺寸手機。', specs:['PLA+材質','透氣設計','可調角度','運動專用'], img:'assets/images/elliptical-phone-holder.jpg', icon:'🔧' },
+    { id:15, title:'透氣收納盒', cat:'functional', catName:'功能配件', desc:'透氣式收納盒，規律圓形孔洞設計兼具美觀與通風效果。', specs:['PLA+材質','透氣設計','收納功能','簡約風格'], img:'assets/images/ventilated-storage.jpg', icon:'🔧' },
+    { id:16, title:'問號方塊收納盒', cat:'creative', catName:'創意造型', desc:'經典遊戲問號方塊造型，不僅是裝飾品更是實用收納盒。精確卡扣設計，開合順暢。', specs:['ABS材質','卡扣機構','收納功能','遊戲週邊'], img:'assets/images/mario-question-block.jpg', icon:'🎨' }
 ];
 
 // ==================== RENDER PORTFOLIO ====================
@@ -1401,8 +1419,11 @@ function renderPortfolio(filter = 'all') {
     grid.innerHTML = items.map(p => `
         <div class="portfolio-card" onclick="openModal(${p.id})">
             <div class="p-image" data-cat="${p.cat}">
-                <div class="p-image-inner" style="background-image:url('${p.img}')"></div>
-                <div class="p-placeholder">${p.icon}</div>
+                <div class="p-image-inner" data-src="${p.img}"></div>
+                <div class="p-placeholder">
+                    <span class="p-placeholder-icon">${p.icon}</span>
+                    <span class="p-placeholder-text">${p.title}</span>
+                </div>
             </div>
             <div class="p-body">
                 <span class="p-badge p-badge-${p.cat}">${p.catName}</span>
@@ -1412,14 +1433,16 @@ function renderPortfolio(filter = 'all') {
         </div>
     `).join('');
 
-    // Check images
+    // Check images - show image layer only if loaded successfully
     grid.querySelectorAll('.p-image-inner').forEach(el => {
-        const bg = el.style.backgroundImage;
-        if (bg && bg !== 'none') {
-            const url = bg.replace(/url\(['"]?|['"]?\)/g, '');
+        const src = el.dataset.src;
+        if (src) {
             const img = new Image();
-            img.onload = () => { el.parentElement.querySelector('.p-placeholder').style.display = 'none'; };
-            img.src = url;
+            img.onload = () => {
+                el.style.backgroundImage = `url('${src}')`;
+                el.classList.add('loaded');
+            };
+            img.src = src;
         }
     });
 }
@@ -1439,8 +1462,8 @@ function openModal(id) {
     if (!p) return;
     const m = document.getElementById('modalContent');
     m.innerHTML = `
-        <div class="modal-image" style="background:${p.img ? `url('${p.img}') center/cover` : `linear-gradient(135deg, var(--bg-card), var(--bg-secondary))`}">
-            ${p.img ? '' : `<div style="font-size:4rem;opacity:0.15">${p.icon}</div>`}
+        <div class="modal-image" style="background:linear-gradient(135deg, var(--bg-card), var(--bg-secondary))">
+            <div style="font-size:4rem;opacity:0.4">${p.icon}</div>
         </div>
         <span class="p-badge p-badge-${p.cat}">${p.catName}</span>
         <h2>${p.title}</h2>
@@ -1450,6 +1473,15 @@ function openModal(id) {
             <a href="#contact" class="btn btn-primary" onclick="closeModal()">立即詢問報價 →</a>
         </div>
     `;
+    // Try load modal image
+    if (p.img) {
+        const testImg = new Image();
+        testImg.onload = () => {
+            m.querySelector('.modal-image').style.background = `url('${p.img}') center/cover`;
+            m.querySelector('.modal-image').innerHTML = '';
+        };
+        testImg.src = p.img;
+    }
     document.getElementById('modal').classList.add('show');
     document.body.style.overflow = 'hidden';
 }
