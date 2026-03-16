@@ -5,3 +5,6 @@ email: sstarfly@gmail.com
 line_id: spg
 baseurl: "/3d-workshop1"
 url: "https://10wang-creat.github.io"
+
+# Blog settings
+permalink: /blog/:year/:month/:day/:title.html
