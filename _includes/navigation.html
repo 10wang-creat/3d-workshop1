@@ -1,114 +1,25 @@
-<nav class="main-nav">
-    <div class="nav-container">
-        <a href="{{ site.baseurl }}/" class="nav-logo">🔺 3D創想工坊</a>
-        <ul class="nav-menu">
-            <li><a href="{{ site.baseurl }}/" {% if page.title == "首頁" %}class="active"{% endif %}>首頁</a></li>
-            <li><a href="{{ site.baseurl }}/about.html" {% if page.title == "關於我們" %}class="active"{% endif %}>關於我們</a></li>
-            <li><a href="{{ site.baseurl }}/portfolio.html" {% if page.title == "作品集" %}class="active"{% endif %}>作品集</a></li>
-            <li><a href="{{ site.baseurl }}/service.html" {% if page.title == "服務流程" %}class="active"{% endif %}>服務流程</a></li>
-            <li><a href="{{ site.baseurl }}/contact.html" {% if page.title == "聯絡我們" %}class="active"{% endif %} class="nav-contact">聯絡我們</a></li>
-        </ul>
+<header class="header">
+    <div class="container header-inner">
+        <a href="{{ site.baseurl }}/" class="logo">
+            <div class="logo-icon"><img src="{{ site.baseurl }}/assets/images/logo-192.png" alt="{{ site.title }}"></div>
+            <span>創想工坊</span>
+        </a>
+        <nav class="nav-desktop">
+            <a href="{{ site.baseurl }}/#portfolio">作品集</a>
+            <a href="{{ site.baseurl }}/#process">服務流程</a>
+            <a href="{{ site.baseurl }}/#features">優勢</a>
+            <a href="{{ site.baseurl }}/blog.html">知識庫</a>
+            <a href="{{ site.baseurl }}/#contact">聯絡我們</a>
+            <a href="{{ site.baseurl }}/#contact" class="nav-cta">免費諮詢</a>
+        </nav>
+        <button class="hamburger" id="hamburger" aria-label="選單"><span></span><span></span><span></span></button>
     </div>
-</nav>
-
-<style>
-html {
-    scroll-behavior: smooth;
-}
-
-.main-nav {
-    position: sticky;
-    top: 0;
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    padding: 1rem 0;
-    margin-bottom: 2rem;
-    z-index: 1000;
-}
-
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.nav-logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #667eea;
-    text-decoration: none;
-}
-
-.nav-menu {
-    display: flex;
-    list-style: none;
-    gap: 1.5rem;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-menu a {
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    white-space: nowrap;
-}
-
-.nav-menu a:hover {
-    background: #f0f0f0;
-    color: #667eea;
-}
-
-.nav-menu a.active {
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: white;
-}
-
-.nav-contact {
-    background: linear-gradient(45deg, #ff6b6b, #ee5a24);
-    color: white !important;
-    padding: 0.5rem 1.5rem !important;
-}
-
-.nav-contact:hover {
-    background: linear-gradient(45deg, #ee5a24, #ff6b6b) !important;
-}
-
-@media (max-width: 768px) {
-    .nav-container {
-        padding: 0 0.5rem;
-        justify-content: center;
-    }
-    
-    .nav-logo {
-        display: none;
-    }
-    
-    .nav-menu {
-        gap: 0.3rem;
-    }
-    
-    .nav-menu a {
-        padding: 0.4rem 0.5rem;
-        font-size: 0.8rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .nav-menu {
-        gap: 0.2rem;
-    }
-    
-    .nav-menu a {
-        padding: 0.3rem 0.4rem;
-        font-size: 0.7rem;
-    }
-}
-</style>
+    <nav class="nav-mobile" id="navMobile">
+        <a href="{{ site.baseurl }}/#portfolio">作品集</a>
+        <a href="{{ site.baseurl }}/#process">服務流程</a>
+        <a href="{{ site.baseurl }}/#features">優勢</a>
+        <a href="{{ site.baseurl }}/blog.html">知識庫</a>
+        <a href="{{ site.baseurl }}/#contact">聯絡我們</a>
+        <a href="{{ site.baseurl }}/#contact" style="color:var(--accent);font-weight:700;">免費諮詢 →</a>
+    </nav>
+</header>

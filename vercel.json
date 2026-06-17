@@ -1,5 +1,11 @@
 {
   "buildCommand": "bundle exec jekyll build --config _config.yml,_config_vercel.yml --destination _site",
   "outputDirectory": "_site",
-  "installCommand": "bundle install"
+  "installCommand": "bundle install",
+  "redirects": [
+    { "source": "/about.html", "destination": "/#features", "permanent": true },
+    { "source": "/portfolio.html", "destination": "/#portfolio", "permanent": true },
+    { "source": "/service.html", "destination": "/#process", "permanent": true },
+    { "source": "/contact.html", "destination": "/#contact", "permanent": true }
+  ]
 }

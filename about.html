@@ -1,94 +1,18 @@
 ---
-layout: default
 title: 關於我們
+sitemap: false
 ---
-
-<style>
-.about-section{padding:3rem 0;max-width:900px;margin:0 auto}
-.about-header{text-align:center;margin-bottom:3rem}
-.about-title{font-size:2.5rem;color:#333;margin-bottom:1rem;position:relative;display:inline-block}
-.about-title::after{content:'';position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:80px;height:4px;background:linear-gradient(90deg,#667eea,#764ba2);border-radius:2px}
-.about-intro{font-size:1.1rem;color:#666;line-height:1.8;margin-top:2rem}
-
-.info-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;margin:3rem 0}
-.info-card{background:white;padding:2rem;border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,0.08);text-align:center;transition:all 0.3s ease}
-.info-card:hover{transform:translateY(-5px);box-shadow:0 10px 30px rgba(102,126,234,0.15)}
-.info-icon{font-size:3rem;margin-bottom:1rem}
-.info-title{font-size:1.3rem;color:#333;font-weight:bold;margin-bottom:0.5rem}
-.info-text{color:#666;font-size:0.95rem;line-height:1.6}
-
-.owner-section{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:white;padding:3rem;border-radius:20px;margin:3rem 0;text-align:center}
-.owner-section h3{font-size:1.8rem;margin-bottom:1rem}
-.owner-section p{font-size:1.1rem;line-height:1.8;opacity:0.95}
-
-.values-section{margin:3rem 0}
-.values-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem}
-.value-item{padding:1.5rem;background:#f8f9fa;border-radius:10px;border-left:4px solid #667eea}
-.value-item h4{color:#667eea;margin-bottom:0.5rem;font-size:1.2rem}
-.value-item p{color:#666;font-size:0.9rem}
-
-@media (max-width:768px){
-  .about-title{font-size:2rem}
-  .info-cards{grid-template-columns:1fr}
-  .owner-section{padding:2rem}
-}
-</style>
-
-<section class="about-section">
-  <div class="about-header">
-    <h1 class="about-title">關於我們</h1>
-    <p class="about-intro">
-      3D創想工坊致力於提供專業的3D列印服務,從概念設計到成品製作,<br>
-      我們結合豐富的設計背景與精密的3D列印技術,為您實現每一個創意想法。
-    </p>
-  </div>
-
-  <div class="info-cards">
-    <div class="info-card">
-      <div class="info-icon">🎨</div>
-      <h3 class="info-title">專業設計</h3>
-      <p class="info-text">具備設計背景,深諳空間與產品美學,提供專業3D建模服務</p>
-    </div>
-    
-    <div class="info-card">
-      <div class="info-icon">⚡</div>
-      <h3 class="info-title">快速交付</h3>
-      <p class="info-text">24-72小時快速交付,精準掌握時程,不讓您久等</p>
-    </div>
-    
-    <div class="info-card">
-      <div class="info-icon">🔧</div>
-      <h3 class="info-title">精密品質</h3>
-      <p class="info-text">±0.1mm高精度列印,多種材質選擇,確保產品品質</p>
-    </div>
-  </div>
-
-  <div class="owner-section">
-    <p>
-      結合多年設計經驗與3D列印技術,專注於客製化治具、功能配件與創意產品的開發。
-      <br><br>
-      我們相信每個產品都有其獨特的需求,因此提供從設計諮詢到成品製作的一站式服務,
-      讓您的創意不再只是想法,而是能夠實際應用的產品。
-    </p>
-  </div>
-
-  <div class="values-section">
-    <h2 style="text-align:center;margin-bottom:2rem;color:#333;">我們的優勢</h2>
-    <div class="values-grid">
-      <div class="value-item">
-        <h4>🎯 客製化設計</h4>
-        <p>依據需求量身打造,不只是列印,更提供設計建議</p>
-      </div>
-      
-      <div class="value-item">
-        <h4>📐 精密測量</h4>
-        <p>專業測量工具,確保尺寸完全符合需求</p>
-      </div>
-      
-      <div class="value-item">
-        <h4>🔄 逆向工程</h4>
-        <p>可依據實體樣品進行3D建模重現</p>
-      </div>
-    </div>
-  </div>
-</section>
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="{{ site.url }}{{ site.baseurl }}/#features">
+<meta http-equiv="refresh" content="0; url={{ site.baseurl }}/#features">
+<title>頁面已移動 | {{ site.title }}</title>
+<script>location.replace("{{ site.baseurl }}/#features");</script>
+</head>
+<body>
+<p>此頁內容已整併至首頁，正在為您轉址⋯⋯ 若未自動跳轉，請<a href="{{ site.baseurl }}/#features">點此前往</a>。</p>
+</body>
+</html>

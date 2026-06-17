@@ -1,111 +1,227 @@
+# 作品集 — 全站唯一資料來源
+# 欄位：id / title / category / category_name / desc(短) / detail(長) / specs(清單) / image / icon
+# category 對應標籤色：production / functional / decorative / creative
+
 - id: 1
   title: 檢驗載體製作
   category: production
   category_name: 客製化治具
-  description: 專業的產品檢驗載體,具有精確的凹槽設計,可將產品固定在特定位置進行掃描檢驗
+  icon: "🏭"
   image: inspection-carrier.jpg
+  desc: 精密檢驗載體，用於產品掃描檢驗的定位治具
+  detail: 專業的產品檢驗載體，具有精確的凹槽設計，可將產品固定在特定位置進行掃描檢驗。確保檢驗過程的一致性和準確性，廣泛應用於品質控制流程。可依照需求客製化設計。
+  specs:
+    - 高精度樹脂
+    - 精密定位
+    - 品質檢驗
+    - 客製化設計
 
 - id: 2
   title: 車泊排風扇 - 可調風向
   category: functional
   category_name: 功能配件
-  description: 專為車泊生活設計的排風扇配件,具備可調式上下風向功能
+  icon: "🔧"
   image: van-fan-adjustable.jpg
+  desc: 可調式風向設計，車泊生活的完美通風解決方案
+  detail: 專為車泊生活設計的排風扇配件，具備可調式上下風向功能。綠色部分採用活動設計，可依需求調整通風角度，有效改善車內空氣流通。耐用的PLA+材質適合戶外使用環境。
+  specs:
+    - PLA+材質
+    - 可調風向
+    - 車泊專用
+    - 耐候設計
 
 - id: 3
   title: 車泊排風扇 - 晴雨罩
   category: functional
   category_name: 功能配件
-  description: 專業的車泊排風扇晴雨罩設計,有效防止雨水進入車內同時保持良好通風效果
+  icon: "🔧"
   image: van-fan-rain-cover.jpg
+  desc: 防雨通風兼具，車泊生活的實用配件
+  detail: 專業的車泊排風扇晴雨罩設計，有效防止雨水進入車內同時保持良好通風效果。雙通風口設計確保空氣流通順暢，黑色霧面處理美觀實用。
+  specs:
+    - ABS材質
+    - 防雨設計
+    - 雙通風口
+    - 霧面處理
 
 - id: 4
   title: 雙手錶充電器
   category: functional
   category_name: 功能配件
-  description: 專業的雙手錶充電座,可同時為兩支智慧手錶充電
+  icon: "🔧"
   image: dual-watch-charger.jpg
+  desc: 可同時充電兩支手錶的專用充電座
+  detail: 專業的雙手錶充電座，可同時為兩支智慧手錶充電。圓形凹槽設計完美貼合手錶，穩固不滑落。簡約白色設計，是桌面整理的完美解決方案。
+  specs:
+    - PLA+材質
+    - 雙錶充電
+    - 防滑設計
+    - 桌面整理
 
 - id: 5
   title: 瓦斯爐防油蓋
   category: functional
   category_name: 功能配件
-  description: 實用的瓦斯爐開關防油噴濺保護蓋,有效防止烹飪時油脂濺到開關旋鈕上
+  icon: "🔧"
   image: stove-oil-cover.jpg
+  desc: 廚房烹飪好幫手，防止油脂濺到瓦斯開關
+  detail: 實用的瓦斯爐開關防油噴濺保護蓋，有效防止烹飪時油脂濺到開關旋鈕上。黑色耐熱材質，簡約設計不影響廚房美觀。
+  specs:
+    - 耐熱ABS
+    - 防油設計
+    - 易清潔
+    - 廚房專用
 
 - id: 6
   title: 多功能收納盒
   category: functional
   category_name: 功能配件
-  description: 創新設計的多功能收納盒,採用可拆式隔板設計,可依需求調整內部空間
+  icon: "🔧"
   image: multi-storage-box.jpg
+  desc: 可拆式隔板設計，模組化收納解決方案
+  detail: 創新設計的多功能收納盒，採用可拆式隔板設計，可依需求調整內部空間。前方設有專用小隔板收納槽，讓整理更有條理。
+  specs:
+    - PLA+材質
+    - 可拆隔板
+    - 模組化設計
+    - 多功能收納
 
 - id: 7
   title: 車內杯架組
   category: functional
   category_name: 功能配件
-  description: 專業的車內置物杯架,特殊設計可完美容納方形飲料瓶
+  icon: "🔧"
   image: car-cup-holder.jpg
+  desc: 專為方形飲料瓶設計的車用杯架解決方案
+  detail: 專業的車內置物杯架，特殊設計可完美容納方形飲料瓶。精密的幾何花紋底部提供防滑效果，確保行車安全。
+  specs:
+    - ABS材質
+    - 防滑花紋
+    - 方瓶專用
+    - 模組設計
 
 - id: 8
   title: Switch充電散熱座
   category: functional
   category_name: 功能配件
-  description: 專為Nintendo Switch設計的充電散熱座,具備散熱孔設計有效降低主機溫度
+  icon: "🔧"
   image: switch-cooling-stand.jpg
+  desc: 遊戲主機散熱充電二合一，提升遊戲體驗
+  detail: 專為Nintendo Switch設計的充電散熱座，散熱孔設計有效降低主機溫度，同時支援穩定充電。精準的角度設計讓遊戲體驗更舒適。
+  specs:
+    - PLA+材質
+    - 散熱設計
+    - Type-C充電
+    - 防滑底座
 
 - id: 9
   title: 強力吹風機
   category: functional
   category_name: 功能配件
-  description: 專業級強力吹風機設計,黑色機身搭配黃色風扇罩,具備可調節風向功能
+  icon: "🔧"
   image: power-fan.jpg
+  desc: 專業級強力吹風機，黑黃配色設計
+  detail: 專業級強力吹風機設計，黑色機身搭配黃色風扇罩，具備可調節風向功能。輕量化設計適合長時間使用，配備電池底座提供無線使用便利性。
+  specs:
+    - ABS外殼
+    - 可調風向
+    - 無線設計
+    - 輕量化
 
 - id: 10
   title: 螺旋造型模型
   category: creative
   category_name: 創意造型
-  description: 純粹的螺旋幾何造型模型,展現3D列印在複雜幾何結構上的精準表現
+  icon: "🎨"
   image: spiral-model.jpg
+  desc: 純粹螺旋幾何設計，展現3D列印複雜結構能力
+  detail: 純粹的螺旋幾何造型模型，展現3D列印在複雜幾何結構上的精準表現。流暢的螺旋線條一體成型，無需支撐材料，體現積層製造的技術優勢。
+  specs:
+    - PLA材質
+    - 螺旋造型
+    - 一體成型
+    - 無支撐列印
 
 - id: 11
   title: 六角多肉植物盆
   category: decorative
   category_name: 居家裝飾
-  description: 時尚六角造型多肉植物盆,採用幾何美學設計,完美展現現代簡約風格
+  icon: "🏠"
   image: hexagon-planter.jpg
+  desc: 幾何美學設計，現代簡約風格的多肉植物盆
+  detail: 時尚六角造型多肉植物盆，採用幾何美學設計，完美展現現代簡約風格。黑色霧面質感，搭配任何居家環境都能成為亮點。
+  specs:
+    - PLA+材質
+    - 霧面後處理
+    - 排水孔設計
+    - 環保材料
 
 - id: 12
   title: 浴室置物架
   category: functional
   category_name: 功能配件
-  description: 實用的浴室牆面置物架,雙層圓形設計提供充足收納空間
+  icon: "🔧"
   image: bathroom-shelf.jpg
+  desc: 防水雙層設計，浴室收納好幫手
+  detail: 實用的浴室牆面置物架，雙層圓形設計提供充足收納空間。灰色霧面質感防水耐潮，簡約造型適合現代浴室風格。
+  specs:
+    - PETG材質
+    - 防水設計
+    - 雙層收納
+    - 牆面安裝
 
 - id: 13
   title: 肥皂瀝水架
   category: functional
   category_name: 功能配件
-  description: 簡約實用的肥皂瀝水架,流線型設計確保良好的排水效果
+  icon: "🔧"
   image: soap-drainer.jpg
+  desc: 實用的浴室配件，流線設計與排水功能
+  detail: 簡約實用的肥皂瀝水架，流線型設計確保良好的排水效果。防滑底座設計，穩固耐用，讓浴室更加整潔有序。
+  specs:
+    - PETG材質
+    - 防滑設計
+    - 快速排水
+    - 抗菌處理
 
 - id: 14
   title: 橢圓機手機架
   category: functional
   category_name: 功能配件
-  description: 專為橢圓機設計的手機支架,具備蜂窩孔洞透氣設計,有效防止手機過熱
+  icon: "🔧"
   image: elliptical-phone-holder.jpg
+  desc: 運動專用手機支架，蜂窩透氣設計
+  detail: 專為橢圓機設計的手機支架，蜂窩孔洞透氣設計有效防止手機過熱。可調節角度，適合不同尺寸手機。
+  specs:
+    - PLA+材質
+    - 透氣設計
+    - 可調角度
+    - 運動專用
 
 - id: 15
   title: 透氣收納盒
   category: functional
   category_name: 功能配件
-  description: 實用的透氣式收納盒,規律的圓形孔洞設計不僅美觀,更提供良好的通風效果
+  icon: "🔧"
   image: ventilated-storage.jpg
+  desc: 規律孔洞設計，兼具美觀與透氣功能
+  detail: 實用的透氣式收納盒，規律的圓形孔洞設計不僅美觀，更提供良好的通風效果。適合收納各種小物件。
+  specs:
+    - PLA+材質
+    - 透氣設計
+    - 收納功能
+    - 簡約風格
 
 - id: 16
-  title: 任天堂問號方塊
-  category: functional
-  category_name: 功能配件
-  description: 經典瑪利歐遊戲中的問號方塊,不僅是裝飾品更是實用的收納盒
+  title: 問號方塊收納盒
+  category: creative
+  category_name: 創意造型
+  icon: "🎨"
   image: mario-question-block.jpg
+  desc: 經典遊戲造型，兼具收納功能的實用設計
+  detail: 經典遊戲中的問號方塊造型，不僅是裝飾品更是實用的收納盒。精確的卡扣設計，開合順暢，是遊戲迷的完美桌面配件。
+  specs:
+    - ABS材質
+    - 卡扣機構
+    - 收納功能
+    - 遊戲週邊
