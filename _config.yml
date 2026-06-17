@@ -8,3 +8,7 @@ url: "https://10wang-creat.github.io"
 
 # Blog settings
 permalink: /blog/:year/:month/:day/:title.html
+
+# 排程發布設定
+timezone: Asia/Taipei   # 文章日期以台灣時間判斷
+future: false           # 未來日期的文章先隱藏，到日子才出現

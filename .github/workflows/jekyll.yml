@@ -1,0 +1,57 @@
+# 自動建置並部署 Jekyll 網站到 GitHub Pages
+# 除了 push 時會重建，還會「每天定時重建一次」，
+# 讓未來日期的文章一到日子就自動出現。
+name: Build and deploy Jekyll site
+
+on:
+  # 每次 push 到 main 分支時重建
+  push:
+    branches: ["main"]
+  # 每天定時重建（cron 為 UTC 時間）
+  # 16:10 UTC = 台灣時間隔天 00:10，文章會在當天凌晨自動上線
+  schedule:
+    - cron: "10 16 * * *"
+  # 允許在 Actions 頁面手動按按鈕重建
+  workflow_dispatch:
+
+# 部署到 Pages 所需權限
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 避免多個部署同時進行
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Build with Jekyll
+        run: bundle exec jekyll build
+        env:
+          JEKYLL_ENV: production
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
