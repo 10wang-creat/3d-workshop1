@@ -12,3 +12,17 @@ permalink: /blog/:year/:month/:day/:title.html
 # 排程發布設定
 timezone: Asia/Taipei   # 文章日期以台灣時間判斷
 future: false           # 未來日期的文章先隱藏，到日子才出現
+
+# Plugins
+plugins:
+  - jekyll-sitemap
+
+# 不要複製到輸出的檔案
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vercel.json
+  - README.md
+  - node_modules
+  - .github
+  - _originals

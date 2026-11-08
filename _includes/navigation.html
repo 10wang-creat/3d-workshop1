@@ -1,10 +1,11 @@
+<a href="#main" class="skip-link">跳到主要內容</a>
 <header class="header">
     <div class="container header-inner">
         <a href="{{ site.baseurl }}/" class="logo">
             <div class="logo-icon"><img src="{{ site.baseurl }}/assets/images/logo-192.png" alt="{{ site.title }}"></div>
             <span>創想工坊</span>
         </a>
-        <nav class="nav-desktop">
+        <nav class="nav-desktop" aria-label="主選單">
             <a href="{{ site.baseurl }}/#portfolio">作品集</a>
             <a href="{{ site.baseurl }}/#process">服務流程</a>
             <a href="{{ site.baseurl }}/#features">優勢</a>
@@ -12,9 +13,9 @@
             <a href="{{ site.baseurl }}/#contact">聯絡我們</a>
             <a href="{{ site.baseurl }}/#contact" class="nav-cta">免費諮詢</a>
         </nav>
-        <button class="hamburger" id="hamburger" aria-label="選單"><span></span><span></span><span></span></button>
+        <button class="hamburger" id="hamburger" aria-label="開啟選單" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
     </div>
-    <nav class="nav-mobile" id="navMobile">
+    <nav class="nav-mobile" id="navMobile" aria-label="行動版選單">
         <a href="{{ site.baseurl }}/#portfolio">作品集</a>
         <a href="{{ site.baseurl }}/#process">服務流程</a>
         <a href="{{ site.baseurl }}/#features">優勢</a>

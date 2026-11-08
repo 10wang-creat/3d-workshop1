@@ -18,7 +18,7 @@ description: "3D列印知識分享：材料選擇、設計技巧、產業應用�
             <a href="{{ site.baseurl }}{{ post.url }}" class="blog-item reveal">
                 <div class="blog-item-meta">
                     <span class="blog-item-tag">{{ post.category }}</span>
-                    <span class="blog-item-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+                    <time class="blog-item-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
                     {% if post.reading_time %}<span class="blog-item-reading">⏱ {{ post.reading_time }} 分鐘</span>{% endif %}
                 </div>
                 <h2>{{ post.title }}</h2>

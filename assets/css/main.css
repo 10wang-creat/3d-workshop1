@@ -323,3 +323,20 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .related-posts h2 { font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 24px; padding-top: 32px; border-top: 1px solid var(--border-light); color: var(--text-primary); }
 .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
 .related-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius); padding: 24px; color: var(--text-primary); transition: all .3s; box-shadow: var(--shadow-card); }
+
+/* ===== 2026-11 優化補充 ===== */
+.p-card[hidden] { display: none; }
+.p-card:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.p-image-wrap picture { display: contents; }
+.materials-note { margin-top: 24px; text-align: center; font-size: .92rem; color: var(--text-secondary); }
+.materials-note a { color: var(--accent-deep); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+.form-error { display: none; margin-top: 14px; padding: 12px 14px; border-radius: var(--radius-sm); background: rgba(192, 72, 72, .08); border: 1px solid rgba(192, 72, 72, .25); color: #a33a3a; font-size: .9rem; font-weight: 600; text-align: center; }
+.form-error:not(:empty) { display: block; }
+.article-body img { max-width: 100%; height: auto; border-radius: var(--radius); }
+.skip-link { position: absolute; left: -999px; top: 8px; z-index: 3000; background: var(--accent-deep); color: #fff; padding: 10px 16px; border-radius: 8px; font-weight: 700; }
+.skip-link:focus { left: 8px; }
+@media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .hero-badge-dot, .float-line-pulse { animation: none; }
+    html { scroll-behavior: auto; }
+}

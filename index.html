@@ -31,14 +31,36 @@ description: 新竹專業3D列印服務。10年設計經驗，從概念到成品
 <section id="portfolio" class="portfolio section-padding">
     <div class="container">
         <div class="section-header reveal"><div class="section-label">Portfolio</div><h2 class="section-heading">精選作品集</h2><p class="section-desc">展示我們在各領域的專業設計與列印成果</p></div>
-        <div class="filter-bar reveal">
-            <button class="filter-btn active" data-filter="all">全部作品</button>
-            <button class="filter-btn" data-filter="production">客製化治具</button>
-            <button class="filter-btn" data-filter="functional">功能配件</button>
-            <button class="filter-btn" data-filter="decorative">居家裝飾</button>
-            <button class="filter-btn" data-filter="creative">創意造型</button>
+        <div class="filter-bar reveal" role="group" aria-label="作品分類篩選">
+            <button class="filter-btn active" data-filter="all" aria-pressed="true">全部作品</button>
+            <button class="filter-btn" data-filter="production" aria-pressed="false">客製化治具</button>
+            <button class="filter-btn" data-filter="functional" aria-pressed="false">功能配件</button>
+            <button class="filter-btn" data-filter="decorative" aria-pressed="false">居家裝飾</button>
+            <button class="filter-btn" data-filter="creative" aria-pressed="false">創意造型</button>
         </div>
-        <div class="portfolio-grid" id="portfolioGrid"></div>
+        {%- assign year = 'now' | date: '%Y' -%}
+        <div class="portfolio-grid" id="portfolioGrid">
+            {%- for item in site.data.portfolio -%}
+            {%- assign jpg = '/assets/images/' | append: item.image | relative_url -%}
+            {%- assign webp = jpg | replace: '.jpg', '.webp' -%}
+            <article class="p-card reveal" data-id="{{ item.id }}" data-cat="{{ item.category }}" tabindex="0" role="button" aria-haspopup="dialog" aria-label="查看「{{ item.title }}」詳細資訊">
+                <div class="p-image-wrap">
+                    <div class="p-placeholder" aria-hidden="true"><div class="p-placeholder-icon">{{ item.icon }}</div><div class="p-placeholder-name">{{ item.title }}</div></div>
+                    <picture>
+                        <source srcset="{{ webp }}" type="image/webp">
+                        <img class="p-real-image loaded" src="{{ jpg }}" alt="{{ item.title }}（{{ item.category_name }}）" width="800" height="600" loading="lazy" decoding="async">
+                    </picture>
+                    <div class="p-image-overlay"><span class="p-watermark">© {{ site.title }} {{ year }}</span></div>
+                </div>
+                <div class="p-body">
+                    <span class="p-tag p-tag-{{ item.category }}">{{ item.category_name }}</span>
+                    <h3 class="p-title">{{ item.title }}</h3>
+                    <p class="p-desc">{{ item.desc }}</p>
+                    <div class="p-specs">{% for s in item.specs limit: 3 %}<span class="p-spec">{{ s }}</span>{% endfor %}</div>
+                </div>
+            </article>
+            {%- endfor -%}
+        </div>
     </div>
 </section>
 
@@ -52,12 +74,13 @@ description: 新竹專業3D列印服務。10年設計經驗，從概念到成品
             <div class="process-step reveal"><div class="step-number">04</div><div class="step-title">交付驗收</div><div class="step-desc">24-72 小時快速交付，確認成品符合需求</div></div>
         </div>
         <div class="materials-grid reveal">
-            <div class="material-card"><h4>PLA</h4><p>環保材質，適合一般用途、裝飾品</p></div>
-            <div class="material-card"><h4>PLA+</h4><p>強化版 PLA，更堅固耐用</p></div>
-            <div class="material-card"><h4>ABS</h4><p>耐熱耐撞，適合功能性零件</p></div>
-            <div class="material-card"><h4>PETG</h4><p>防水耐候，適合戶外或潮濕環境</p></div>
-            <div class="material-card"><h4>樹脂</h4><p>高精度，適合精密模型</p></div>
+            <div class="material-card"><h4>PLA</h4><p>好列印、色彩多，適合室內裝飾與展示模型；不耐高溫，車內或日曬環境不建議</p></div>
+            <div class="material-card"><h4>PETG</h4><p>強韌防水、耐濕氣，室內功能件與收納配件的首選</p></div>
+            <div class="material-card"><h4>ASA</h4><p>耐 UV、耐候不脆化，戶外與車用配件的首選</p></div>
+            <div class="material-card"><h4>ABS</h4><p>耐熱耐衝擊，適合機構零件，可打磨後處理</p></div>
+            <div class="material-card"><h4>樹脂</h4><p>高精度細節，適合精密模型與檢驗治具</p></div>
         </div>
+        <p class="materials-note reveal">不確定該選哪種材質？<a href="{{ site.baseurl }}/blog.html">知識庫</a>有材料比較文章，或直接告訴我們使用環境，由我們建議。</p>
     </div>
 </section>
 
@@ -67,7 +90,7 @@ description: 新竹專業3D列印服務。10年設計經驗，從概念到成品
         <div class="features-grid">
             <div class="feature-card reveal"><div class="feature-icon-wrap">🎨</div><div class="feature-title">專業設計能力</div><div class="feature-desc">10年室內設計 + SketchUp建模背景，從概念到3D模型一手包辦</div></div>
             <div class="feature-card reveal"><div class="feature-icon-wrap">⚡</div><div class="feature-title">快速交付</div><div class="feature-desc">24-72小時交付成品，急件可協調優先處理</div></div>
-            <div class="feature-card reveal"><div class="feature-icon-wrap">🔧</div><div class="feature-title">多種材質</div><div class="feature-desc">PLA、ABS、PETG、樹脂等，依需求選擇最佳材料方案</div></div>
+            <div class="feature-card reveal"><div class="feature-icon-wrap">🔧</div><div class="feature-title">多種材質</div><div class="feature-desc">PLA、PETG、ASA、ABS、樹脂，依使用環境建議最合適的材料</div></div>
             <div class="feature-card reveal"><div class="feature-icon-wrap">📐</div><div class="feature-title">高精度保證</div><div class="feature-desc">±0.1mm精度，滿足工業治具與精密零件需求</div></div>
             <div class="feature-card reveal"><div class="feature-icon-wrap">💰</div><div class="feature-title">透明計價</div><div class="feature-desc">清楚報價無隱藏費用，提供免費初步評估</div></div>
             <div class="feature-card reveal"><div class="feature-icon-wrap">🏭</div><div class="feature-title">工業等級服務</div><div class="feature-desc">檢驗治具、測試夾具等工業應用，品質值得信賴</div></div>
@@ -81,97 +104,104 @@ description: 新竹專業3D列印服務。10年設計經驗，從概念到成品
         <div class="section-header reveal"><div class="section-label">Contact</div><h2 class="section-heading">聯絡我們</h2><p class="section-desc">隨時歡迎諮詢，我們會在最短時間內回覆您</p></div>
         <div class="contact-layout">
             <div class="contact-info reveal">
-                <div class="contact-card" onclick="window.open('https://line.me/ti/p/{{ site.line_id }}','_blank')"><div class="contact-icon contact-icon-line">💬</div><div><div class="contact-label">LINE</div><div class="contact-value">{{ site.line_id }}</div><div class="contact-hint">⚡ 最快回覆・點擊加好友</div></div></div>
-                <div class="contact-card" onclick="window.location.href='tel:{{ site.phone | remove: '-' }}'"><div class="contact-icon contact-icon-phone">📞</div><div><div class="contact-label">電話</div><div class="contact-value">{{ site.phone }}</div><div class="contact-hint">點擊撥打</div></div></div>
-                <div class="contact-card" onclick="window.location.href='mailto:{{ site.email }}'"><div class="contact-icon contact-icon-email">📧</div><div><div class="contact-label">Email</div><div class="contact-value">{{ site.email }}</div><div class="contact-hint">點擊發信</div></div></div>
+                <a class="contact-card" href="https://line.me/ti/p/{{ site.line_id }}" target="_blank" rel="noopener"><div class="contact-icon contact-icon-line">💬</div><div><div class="contact-label">LINE</div><div class="contact-value">{{ site.line_id }}</div><div class="contact-hint">⚡ 最快回覆・點擊加好友</div></div></a>
+                <a class="contact-card" href="tel:{{ site.phone | remove: '-' }}"><div class="contact-icon contact-icon-phone">📞</div><div><div class="contact-label">電話</div><div class="contact-value">{{ site.phone }}</div><div class="contact-hint">點擊撥打</div></div></a>
+                <a class="contact-card" href="mailto:{{ site.email }}"><div class="contact-icon contact-icon-email">📧</div><div><div class="contact-label">Email</div><div class="contact-value">{{ site.email }}</div><div class="contact-hint">點擊發信</div></div></a>
                 <div class="file-note"><div style="font-weight:700;margin-bottom:4px;color:var(--text-primary)">📁 有現成 3D 檔案？</div><div style="font-size:.9rem;color:var(--text-secondary)">支援 STL / OBJ / 3MF 格式<br>透過 LINE 或 Email 傳送檔案即可報價</div></div>
             </div>
             <div class="contact-form-wrap reveal">
                 <div class="form-title">線上詢問表單</div>
                 <form id="contactForm" action="https://formspree.io/f/mvgyygjd" method="POST">
-                    <div class="form-group"><label class="form-label">偏好聯絡方式</label><select class="form-select" name="contact_method"><option value="LINE">LINE（最快回覆）</option><option value="電話">電話</option><option value="Email">Email</option></select></div>
-                    <div class="form-group"><label class="form-label">姓名 *</label><input type="text" class="form-input" name="name" required placeholder="您的姓名"></div>
-                    <div class="form-group"><label class="form-label">Email *</label><input type="email" class="form-input" name="email" required placeholder="your@email.com"></div>
-                    <div class="form-group"><label class="form-label">電話 / LINE ID</label><input type="text" class="form-input" name="phone" placeholder="方便聯絡的號碼或LINE ID"></div>
-                    <div class="form-group"><label class="form-label">專案描述</label><textarea class="form-textarea" name="message" placeholder="請描述您的需求，例如：想要設計一個手機架、需要製作檢驗治具..."></textarea></div>
+                    <div class="form-group"><label class="form-label" for="f-method">偏好聯絡方式</label><select class="form-select" id="f-method" name="contact_method"><option value="LINE">LINE（最快回覆）</option><option value="電話">電話</option><option value="Email">Email</option></select></div>
+                    <div class="form-group"><label class="form-label" for="f-name">姓名 *</label><input type="text" class="form-input" id="f-name" name="name" required autocomplete="name" placeholder="您的姓名"></div>
+                    <div class="form-group"><label class="form-label" for="f-email">Email *</label><input type="email" class="form-input" id="f-email" name="email" required autocomplete="email" placeholder="your@email.com"></div>
+                    <div class="form-group"><label class="form-label" for="f-phone">電話 / LINE ID</label><input type="text" class="form-input" id="f-phone" name="phone" autocomplete="tel" placeholder="方便聯絡的號碼或LINE ID"></div>
+                    <div class="form-group"><label class="form-label" for="f-message">專案描述</label><textarea class="form-textarea" id="f-message" name="message" placeholder="請描述您的需求，例如：想要設計一個手機架、需要製作檢驗治具..."></textarea></div>
+                    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
                     <button type="submit" class="form-submit">送出詢問 →</button>
-                    <div class="form-success" id="formSuccess">✅ 感謝您的詢問！我們已收到您的訊息，將在 24 小時內回覆您。</div>
+                    <div class="form-success" id="formSuccess" role="status" aria-live="polite">✅ 感謝您的詢問！我們已收到您的訊息，將在 24 小時內回覆您。</div>
+                    <div class="form-error" id="formError" role="alert"></div>
                 </form>
             </div>
         </div>
     </div>
 </section>
 
-<div class="modal-overlay" id="modal"><div class="modal-box"><button class="modal-close" id="modalClose">✕</button><div id="modalContent"></div></div></div>
+<div class="modal-overlay" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true"><div class="modal-box"><button class="modal-close" id="modalClose" aria-label="關閉">✕</button><div id="modalContent"></div></div></div>
+
+<script type="application/json" id="portfolioData">
+[{% for item in site.data.portfolio %}{"id":{{ item.id }},"name":{{ item.title | jsonify }},"cat":{{ item.category | jsonify }},"catLabel":{{ item.category_name | jsonify }},"detail":{{ item.detail | jsonify }},"specs":{{ item.specs | jsonify }},"image":{{ '/assets/images/' | append: item.image | relative_url | jsonify }},"icon":{{ item.icon | jsonify }}}{% unless forloop.last %},{% endunless %}{% endfor %}]
+</script>
 
 <script>
-const products = [
-{% for item in site.data.portfolio %}{id:{{ item.id }},name:{{ item.title | jsonify }},cat:{{ item.category | jsonify }},catLabel:{{ item.category_name | jsonify }},desc:{{ item.desc | jsonify }},detail:{{ item.detail | jsonify }},specs:{{ item.specs | jsonify }},image:{{ "/assets/images/" | append: item.image | relative_url | jsonify }},icon:{{ item.icon | jsonify }}}{% unless forloop.last %},{% endunless %}
-{% endfor %}];
-const categoryColors = { production: 'p-tag-production', functional: 'p-tag-functional', decorative: 'p-tag-decorative', creative: 'p-tag-creative' };
-const grid = document.getElementById('portfolioGrid');
+(function () {
+    var products = JSON.parse(document.getElementById('portfolioData').textContent);
+    var grid = document.getElementById('portfolioGrid');
+    var cards = Array.prototype.slice.call(grid.querySelectorAll('.p-card'));
 
-function renderPortfolio(filter = 'all') {
-    const filtered = filter === 'all' ? products : products.filter(p => p.cat === filter);
-    grid.innerHTML = filtered.map(p => `
-        <div class="p-card reveal" data-id="${p.id}">
-            <div class="p-image-wrap">
-                <div class="p-placeholder" id="ph-${p.id}"><div class="p-placeholder-icon">${p.icon}</div><div class="p-placeholder-name">${p.name}</div></div>
-                <img class="p-real-image" data-src="${p.image}" alt="${p.name}" loading="lazy">
-                <div class="p-image-overlay"><span class="p-watermark">© {{ site.title }} 2025</span></div>
-            </div>
-            <div class="p-body">
-                <span class="p-tag ${categoryColors[p.cat]}">${p.catLabel}</span>
-                <h3 class="p-title">${p.name}</h3>
-                <p class="p-desc">${p.desc}</p>
-                <div class="p-specs">${p.specs.slice(0, 3).map(s => `<span class="p-spec">${s}</span>`).join('')}</div>
-            </div>
-        </div>`).join('');
-    grid.querySelectorAll('.p-real-image').forEach(img => {
-        const src = img.dataset.src; if (!src) return;
-        const t = new Image();
-        t.onload = () => { img.src = src; img.classList.add('loaded'); const ph = img.closest('.p-image-wrap').querySelector('.p-placeholder'); if (ph) ph.classList.add('hidden'); };
-        t.src = src;
+    // 分類篩選（卡片已由 Jekyll 輸出，這裡只切換顯示）
+    var filterBtns = document.querySelectorAll('.filter-btn');
+    filterBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            var f = btn.dataset.filter;
+            filterBtns.forEach(function (b) { var on = b === btn; b.classList.toggle('active', on); b.setAttribute('aria-pressed', on ? 'true' : 'false'); });
+            cards.forEach(function (c) { c.hidden = !(f === 'all' || c.dataset.cat === f); });
+            if (typeof observeElements === 'function') observeElements();
+        });
     });
-    grid.querySelectorAll('.p-card').forEach(card => { card.addEventListener('click', () => { const p = products.find(x => x.id == card.dataset.id); if (p) openModal(p); }); });
-    if (typeof observeElements === 'function') observeElements();
-}
 
-document.querySelectorAll('.filter-btn').forEach(btn => { btn.addEventListener('click', () => { document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); renderPortfolio(btn.dataset.filter); }); });
+    // 作品詳情 modal
+    var modal = document.getElementById('modal'), modalContent = document.getElementById('modalContent'),
+        modalClose = document.getElementById('modalClose'), lastFocus = null;
+    function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+    function openModal(p) {
+        var webp = p.image.replace(/\.jpg$/, '.webp');
+        modalContent.innerHTML =
+            '<div class="modal-image"><picture><source srcset="' + webp + '" type="image/webp"><img src="' + p.image + '" alt="' + esc(p.name) + '" width="800" height="600" style="width:100%;height:100%;object-fit:cover"></picture></div>' +
+            '<div class="modal-body">' +
+            '<div class="modal-tag"><span class="p-tag p-tag-' + esc(p.cat) + '">' + esc(p.catLabel) + '</span></div>' +
+            '<h2 class="modal-title" id="modalTitle">' + esc(p.name) + '</h2>' +
+            '<div class="modal-section-label">產品描述</div><p class="modal-desc">' + esc(p.detail) + '</p>' +
+            '<div class="modal-section-label">技術規格</div><div class="modal-specs">' + p.specs.map(function (s) { return '<span class="modal-spec">' + esc(s) + '</span>'; }).join('') + '</div>' +
+            '<a href="#contact" class="modal-cta" id="modalCta">立即詢問報價 →</a>' +
+            '</div>';
+        document.getElementById('modalCta').addEventListener('click', closeModal);
+        lastFocus = document.activeElement;
+        modal.classList.add('open'); modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        modalClose.focus();
+    }
+    function closeModal() {
+        modal.classList.remove('open'); modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        if (lastFocus && lastFocus.focus) lastFocus.focus();
+    }
+    function openById(id) { var p = products.filter(function (x) { return String(x.id) === String(id); })[0]; if (p) openModal(p); }
+    cards.forEach(function (card) {
+        card.addEventListener('click', function () { openById(card.dataset.id); });
+        card.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openById(card.dataset.id); } });
+    });
+    modalClose.addEventListener('click', closeModal);
+    modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && modal.classList.contains('open')) closeModal(); });
 
-const modal = document.getElementById('modal'), modalContent = document.getElementById('modalContent');
-function openModal(p) {
-    modalContent.innerHTML = `
-        <div class="modal-image"><div class="modal-image-placeholder" id="modal-ph"><div class="icon">${p.icon}</div><div style="font-size:.9rem;color:var(--text-muted);font-weight:500">${p.name}</div></div></div>
-        <div class="modal-body">
-            <div class="modal-tag"><span class="p-tag ${categoryColors[p.cat]}">${p.catLabel}</span></div>
-            <h2 class="modal-title">${p.name}</h2>
-            <div class="modal-section-label">產品描述</div><p class="modal-desc">${p.detail}</p>
-            <div class="modal-section-label">技術規格</div><div class="modal-specs">${p.specs.map(s => `<span class="modal-spec">${s}</span>`).join('')}</div>
-            <a href="#contact" class="modal-cta" onclick="closeModal()">立即詢問報價 →</a>
-        </div>`;
-    if (p.image) { const t = new Image(); t.onload = () => { const ph = document.getElementById('modal-ph'); if (ph) ph.innerHTML = `<img src="${p.image}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover">`; }; t.src = p.image; }
-    modal.classList.add('open'); document.body.style.overflow = 'hidden';
-}
-function closeModal() { modal.classList.remove('open'); document.body.style.overflow = ''; }
-document.getElementById('modalClose').addEventListener('click', closeModal);
-modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-
-// 表單送出（Formspree）
-document.getElementById('contactForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-    const form = this, btn = form.querySelector('.form-submit'), success = document.getElementById('formSuccess');
-    btn.disabled = true; btn.textContent = '送出中...';
-    fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
-        .then(res => {
-            if (res.ok) {
-                form.reset(); success.classList.add('show'); btn.textContent = '送出成功！';
-                setTimeout(() => { btn.disabled = false; btn.textContent = '送出詢問 →'; success.classList.remove('show'); }, 4000);
-            } else { alert('送出失敗，請稍後再試或直接以 LINE / 電話聯繫我們。'); btn.disabled = false; btn.textContent = '送出詢問 →'; }
-        })
-        .catch(() => { alert('發生錯誤，請稍後再試。'); btn.disabled = false; btn.textContent = '送出詢問 →'; });
-});
-
-renderPortfolio();
+    // 表單送出（Formspree）
+    var form = document.getElementById('contactForm');
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var btn = form.querySelector('.form-submit'), success = document.getElementById('formSuccess'), err = document.getElementById('formError');
+        err.textContent = ''; btn.disabled = true; btn.textContent = '送出中...';
+        fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+            .then(function (res) {
+                if (res.ok) {
+                    form.reset(); success.classList.add('show'); btn.textContent = '送出成功！';
+                    setTimeout(function () { btn.disabled = false; btn.textContent = '送出詢問 →'; success.classList.remove('show'); }, 5000);
+                } else { throw new Error('bad status'); }
+            })
+            .catch(function () {
+                err.textContent = '送出失敗，請稍後再試，或直接以 LINE / 電話聯繫我們。';
+                btn.disabled = false; btn.textContent = '送出詢問 →';
+            });
+    });
+})();
 </script>
