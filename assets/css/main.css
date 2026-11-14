@@ -403,3 +403,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     .nav-quick a:last-child { margin-right: 32px; }
     .nav-quick a.active { color: #fff; background: var(--accent); border-color: var(--accent); }
 }
+.btn-shopee { background: #ee4d2d; color: #fff; }
+.btn-shopee:hover { background: #f05d40; transform: translateY(-2px); }
+.p-shopee-link, .modal-shopee-link { color: #d0391b !important; }

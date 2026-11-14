@@ -62,11 +62,11 @@ description: 新竹專業3D列印服務。10年設計經驗，從概念到成品
                     {%- if item.featured %}
                     <p class="p-desc">{{ item.detail }}</p>
                     <div class="p-specs">{% for s in item.specs %}<span class="p-spec">{{ s }}</span>{% endfor %}</div>
-                    <div class="p-featured-links">{% if item.page %}<a class="p-featured-link" href="{{ item.page | relative_url }}">看產品介紹 →</a>{% endif %}{% if item.article %}<a class="p-featured-link" href="{{ item.article | relative_url }}">看完整實作紀錄 →</a>{% endif %}</div>
+                    <div class="p-featured-links">{% if item.page %}<a class="p-featured-link" href="{{ item.page | relative_url }}">看產品介紹 →</a>{% endif %}{% if item.article %}<a class="p-featured-link" href="{{ item.article | relative_url }}">看完整實作紀錄 →</a>{% endif %}{% if item.shopee %}<a class="p-featured-link p-shopee-link" href="{{ item.shopee }}" target="_blank" rel="noopener">在蝦皮購買 ↗</a>{% endif %}</div>
                     {%- else %}
                     <p class="p-desc">{{ item.desc }}</p>
                     <div class="p-specs">{% for s in item.specs limit: 3 %}<span class="p-spec">{{ s }}</span>{% endfor %}</div>
-                    {% if item.page %}<a class="p-card-link" href="{{ item.page | relative_url }}">{% if item.category == "production" %}看客製治具服務{% else %}看產品介紹{% endif %} →</a>{% endif %}
+                    {% if item.page %}<a class="p-card-link" href="{{ item.page | relative_url }}">{% if item.category == "production" %}看客製治具服務{% else %}看產品介紹{% endif %} →</a>{% endif %}{% if item.shopee %}<a class="p-card-link p-shopee-link" href="{{ item.shopee }}" target="_blank" rel="noopener">在蝦皮購買 ↗</a>{% endif %}
                     {%- endif %}
                 </div>
             </article>
@@ -140,7 +140,7 @@ description: 新竹專業3D列印服務。10年設計經驗，從概念到成品
 <div class="modal-overlay" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true"><div class="modal-box"><button class="modal-close" id="modalClose" aria-label="關閉">✕</button><div id="modalContent"></div></div></div>
 
 <script type="application/json" id="portfolioData">
-[{% for item in site.data.portfolio %}{% assign modal_img = item.featured_image | default: item.image %}{"id":{{ item.id }},"name":{{ item.title | jsonify }},"cat":{{ item.category | jsonify }},"catLabel":{{ item.category_name | jsonify }},"detail":{{ item.detail | jsonify }},"specs":{{ item.specs | jsonify }},"image":{{ '/assets/images/' | append: modal_img | relative_url | jsonify }},"tall":{% if item.featured_image %}true{% else %}false{% endif %},"icon":{{ item.icon | jsonify }},"page":{% if item.page %}{{ item.page | relative_url | jsonify }}{% else %}null{% endif %},"pageLabel":{% if item.category == "production" %}"看客製治具服務 →"{% else %}"看產品介紹 →"{% endif %}}{% unless forloop.last %},{% endunless %}{% endfor %}]
+[{% for item in site.data.portfolio %}{% assign modal_img = item.featured_image | default: item.image %}{"id":{{ item.id }},"name":{{ item.title | jsonify }},"cat":{{ item.category | jsonify }},"catLabel":{{ item.category_name | jsonify }},"detail":{{ item.detail | jsonify }},"specs":{{ item.specs | jsonify }},"image":{{ '/assets/images/' | append: modal_img | relative_url | jsonify }},"tall":{% if item.featured_image %}true{% else %}false{% endif %},"icon":{{ item.icon | jsonify }},"page":{% if item.page %}{{ item.page | relative_url | jsonify }}{% else %}null{% endif %},"pageLabel":{% if item.category == "production" %}"看客製治具服務 →"{% else %}"看產品介紹 →"{% endif %},"shopee":{% if item.shopee %}{{ item.shopee | jsonify }}{% else %}null{% endif %}}{% unless forloop.last %},{% endunless %}{% endfor %}]
 </script>
 
 <script>
@@ -175,6 +175,7 @@ description: 新竹專業3D列印服務。10年設計經驗，從概念到成品
             '<div class="modal-section-label">技術規格</div><div class="modal-specs">' + p.specs.map(function (s) { return '<span class="modal-spec">' + esc(s) + '</span>'; }).join('') + '</div>' +
             '<a href="#contact" class="modal-cta" id="modalCta">立即詢問報價 →</a>' +
             (p.page ? '<a href="' + p.page + '" class="modal-page-link">' + esc(p.pageLabel) + '</a>' : '') +
+            (p.shopee ? '<a href="' + esc(p.shopee) + '" class="modal-page-link modal-shopee-link" target="_blank" rel="noopener">在蝦皮購買 ↗</a>' : '') +
             '</div>';
         document.getElementById('modalCta').addEventListener('click', closeModal);
         lastFocus = document.activeElement;

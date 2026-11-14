@@ -2,6 +2,8 @@ title: 3D創想工坊
 description: 專業3D列印服務
 email: sstarfly@gmail.com
 line_id: spg
+# 蝦皮賣場網址：填入後，網站會顯示「在蝦皮購買」按鈕；留空則不顯示
+shopee_url: ""
 baseurl: "/3d-workshop1"
 url: "https://10wang-creat.github.io"
 # 正式網址：canonical、og:url、結構化資料一律指向這裡（GitHub Pages 與 Vercel 兩邊都用）

@@ -18,6 +18,7 @@ layout: default
         <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
             <a href="https://line.me/ti/p/{{ site.line_id }}" target="_blank" rel="noopener" class="btn btn-line">💬 LINE 即時諮詢</a>
             <a href="{{ site.baseurl }}/#contact" class="btn btn-primary">線上詢問表單 →</a>
+            {% assign shop_link = page.shopee | default: site.shopee_url %}{% if page.show_shopee and shop_link != "" %}<a href="{{ shop_link }}" target="_blank" rel="noopener" class="btn btn-shopee">🛒 在蝦皮購買</a>{% endif %}
         </div>
     </div>
 </article>

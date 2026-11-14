@@ -1,6 +1,7 @@
 # 作品集 — 全站唯一資料來源
 # 欄位：id / title / category / category_name / desc(短) / detail(長) / specs(清單) / image / icon
 # 選填：featured: true / featured_image / article（主打作品用，獨佔一行）
+# 選填：page（連到站內頁面）/ shopee（這件商品的蝦皮網址，填了就會顯示「在蝦皮購買」）
 # category 對應標籤色：production / functional / decorative / creative
 
 - id: 17
