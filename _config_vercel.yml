@@ -1,2 +1,4 @@
 baseurl: ""
 url: "https://www.3dcreativeworkshop.com"
+# 只有 Vercel 版才載入 Web Analytics（GitHub Pages 沒有 /_vercel 路徑）
+vercel_analytics: true
