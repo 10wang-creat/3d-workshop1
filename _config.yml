@@ -5,6 +5,8 @@ email: sstarfly@gmail.com
 line_id: spg
 baseurl: "/3d-workshop1"
 url: "https://10wang-creat.github.io"
+# 正式網址：canonical、og:url、結構化資料一律指向這裡（GitHub Pages 與 Vercel 兩邊都用）
+canonical_base: "https://www.3dcreativeworkshop.com"
 
 # Blog settings
 permalink: /blog/:year/:month/:day/:title.html
