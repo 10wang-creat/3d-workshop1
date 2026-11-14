@@ -409,3 +409,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .modal-gallery { display: flex; gap: 8px; padding: 8px 12px; background: var(--bg-secondary); }
 .modal-gallery picture { width: 180px; flex-shrink: 0; }
 .modal-gallery img { width: 100%; height: 120px; object-fit: cover; border-radius: var(--radius-sm); display: block; }
+/* 主打作品用橫式照片時（沒有 featured_image） */
+.p-card-featured-wide { grid-template-columns: minmax(0, 560px) 1fr; }
+.p-card-featured-wide .p-image-wrap { aspect-ratio: 4 / 3; }
+@media (max-width: 768px) { .p-card-featured-wide { grid-template-columns: 1fr; } }

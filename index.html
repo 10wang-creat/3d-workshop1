@@ -46,7 +46,7 @@ description: 新竹專業3D列印服務。10年設計經驗，從概念到成品
             {%- if item.featured and item.featured_image -%}{%- assign img_file = item.featured_image -%}{%- assign img_w = 900 -%}{%- assign img_h = 1200 -%}{%- endif -%}
             {%- assign jpg = '/assets/images/' | append: img_file | relative_url -%}
             {%- assign webp = jpg | replace: '.jpg', '.webp' -%}
-            <article class="p-card{% if item.featured %} p-card-featured{% endif %} reveal" data-id="{{ item.id }}" data-cat="{{ item.category }}" tabindex="0" role="button" aria-haspopup="dialog" aria-label="查看「{{ item.title }}」詳細資訊">
+            <article class="p-card{% if item.featured %} p-card-featured{% unless item.featured_image %} p-card-featured-wide{% endunless %}{% endif %} reveal" data-id="{{ item.id }}" data-cat="{{ item.category }}" tabindex="0" role="button" aria-haspopup="dialog" aria-label="查看「{{ item.title }}」詳細資訊">
                 <div class="p-image-wrap">
                     <div class="p-placeholder" aria-hidden="true"><div class="p-placeholder-icon">{{ item.icon }}</div><div class="p-placeholder-name">{{ item.title }}</div></div>
                     <picture>
@@ -62,11 +62,11 @@ description: 新竹專業3D列印服務。10年設計經驗，從概念到成品
                     {%- if item.featured %}
                     <p class="p-desc">{{ item.detail }}</p>
                     <div class="p-specs">{% for s in item.specs %}<span class="p-spec">{{ s }}</span>{% endfor %}</div>
-                    <div class="p-featured-links">{% if item.page %}<a class="p-featured-link" href="{{ item.page | relative_url }}">看產品介紹 →</a>{% endif %}{% if item.article %}<a class="p-featured-link" href="{{ item.article | relative_url }}">看完整實作紀錄 →</a>{% endif %}{% if item.shopee %}<a class="p-featured-link p-shopee-link" href="{{ item.shopee }}" target="_blank" rel="noopener">蝦皮客製下單 ↗</a>{% endif %}</div>
+                    <div class="p-featured-links">{% if item.page %}<a class="p-featured-link" href="{{ item.page | relative_url }}">{% if item.category == "production" %}看客製治具服務{% else %}看作品介紹{% endif %} →</a>{% endif %}{% if item.article %}<a class="p-featured-link" href="{{ item.article | relative_url }}">看完整實作紀錄 →</a>{% endif %}{% if item.shopee %}<a class="p-featured-link p-shopee-link" href="{{ item.shopee }}" target="_blank" rel="noopener">蝦皮客製下單 ↗</a>{% endif %}</div>
                     {%- else %}
                     <p class="p-desc">{{ item.desc }}</p>
                     <div class="p-specs">{% for s in item.specs limit: 3 %}<span class="p-spec">{{ s }}</span>{% endfor %}</div>
-                    {% if item.page %}<a class="p-card-link" href="{{ item.page | relative_url }}">{% if item.category == "production" %}看客製治具服務{% else %}看產品介紹{% endif %} →</a>{% endif %}{% if item.shopee %}<a class="p-card-link p-shopee-link" href="{{ item.shopee }}" target="_blank" rel="noopener">蝦皮客製下單 ↗</a>{% endif %}
+                    {% if item.page %}<a class="p-card-link" href="{{ item.page | relative_url }}">{% if item.category == "production" %}看客製治具服務{% else %}看作品介紹{% endif %} →</a>{% endif %}{% if item.shopee %}<a class="p-card-link p-shopee-link" href="{{ item.shopee }}" target="_blank" rel="noopener">蝦皮客製下單 ↗</a>{% endif %}
                     {%- endif %}
                 </div>
             </article>
@@ -140,7 +140,7 @@ description: 新竹專業3D列印服務。10年設計經驗，從概念到成品
 <div class="modal-overlay" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true"><div class="modal-box"><button class="modal-close" id="modalClose" aria-label="關閉">✕</button><div id="modalContent"></div></div></div>
 
 <script type="application/json" id="portfolioData">
-[{% for item in site.data.portfolio %}{% assign modal_img = item.featured_image | default: item.image %}{"id":{{ item.id }},"name":{{ item.title | jsonify }},"cat":{{ item.category | jsonify }},"catLabel":{{ item.category_name | jsonify }},"detail":{{ item.detail | jsonify }},"specs":{{ item.specs | jsonify }},"image":{{ '/assets/images/' | append: modal_img | relative_url | jsonify }},"tall":{% if item.featured_image %}true{% else %}false{% endif %},"icon":{{ item.icon | jsonify }},"page":{% if item.page %}{{ item.page | relative_url | jsonify }}{% else %}null{% endif %},"pageLabel":{% if item.category == "production" %}"看客製治具服務 →"{% else %}"看產品介紹 →"{% endif %},"shopee":{% if item.shopee %}{{ item.shopee | jsonify }}{% else %}null{% endif %},"gallery":[{% for g in item.gallery %}{{ '/assets/images/' | append: g | relative_url | jsonify }}{% unless forloop.last %},{% endunless %}{% endfor %}]}{% unless forloop.last %},{% endunless %}{% endfor %}]
+[{% for item in site.data.portfolio %}{% assign modal_img = item.featured_image | default: item.image %}{"id":{{ item.id }},"name":{{ item.title | jsonify }},"cat":{{ item.category | jsonify }},"catLabel":{{ item.category_name | jsonify }},"detail":{{ item.detail | jsonify }},"specs":{{ item.specs | jsonify }},"image":{{ '/assets/images/' | append: modal_img | relative_url | jsonify }},"tall":{% if item.featured_image %}true{% else %}false{% endif %},"icon":{{ item.icon | jsonify }},"page":{% if item.page %}{{ item.page | relative_url | jsonify }}{% else %}null{% endif %},"pageLabel":{% if item.category == "production" %}"看客製治具服務 →"{% else %}"看作品介紹 →"{% endif %},"shopee":{% if item.shopee %}{{ item.shopee | jsonify }}{% else %}null{% endif %},"gallery":[{% for g in item.gallery %}{{ '/assets/images/' | append: g | relative_url | jsonify }}{% unless forloop.last %},{% endunless %}{% endfor %}]}{% unless forloop.last %},{% endunless %}{% endfor %}]
 </script>
 
 <script>

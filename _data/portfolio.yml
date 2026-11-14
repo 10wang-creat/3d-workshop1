@@ -4,31 +4,13 @@
 # 選填：page（連到站內頁面）/ shopee（這件商品的蝦皮網址，填了就會顯示「在蝦皮購買」）
 # category 對應標籤色：production / functional / decorative / creative
 
-- id: 17
-  title: 模組化壁掛收納系統
-  category: functional
-  category_name: 功能配件
-  icon: "🔧"
-  image: modular-wall-storage.jpg
-  featured: true                          # 主打作品：獨佔一行、顯示完整直式照片
-  featured_image: wall-storage-after.jpg  # 主打用的完整照片（直式 3:4）
-  page: /wall-storage.html                # 產品介紹專頁
-  shopee: https://shopee.tw/product/5380033/40286791507
-  article: /blog/2026/11/14/modular-wall-storage-before-after.html
-  desc: 比洞洞板更有彈性的壁掛收納，市售洞洞板配件也能直接用
-  detail: 自行設計的模組化壁掛收納系統。網格面板以連接件拼接固定，牆面多大就拼多大，之後也能再擴充。掛架、層板、置物盒都依照實際工具的外型量身設計，電動工具、電池、螺絲起子、噴罐各有專屬位置，拿取歸位一目了然。網格規格相容市面上的洞洞板配件，原有的掛勾可以繼續使用。可依您的工具與牆面尺寸客製規劃。
-  specs:
-    - 模組化拼接
-    - 相容洞洞板配件
-    - 工具專屬掛架
-    - 可客製擴充
-
 - id: 1
   title: 檢驗載體製作
   category: production
   category_name: 客製化治具
   icon: "🏭"
   image: inspection-carrier.jpg
+  featured: true                          # 主打作品：獨佔一行
   page: /jigs.html                        # 連到客製治具頁
   desc: 精密檢驗載體，用於產品掃描檢驗的定位治具
   detail: 專業的產品檢驗載體，具有精確的凹槽設計，可將產品固定在特定位置進行掃描檢驗。確保檢驗過程的一致性和準確性，廣泛應用於品質控制流程。可依照需求客製化設計。
@@ -37,6 +19,23 @@
     - 精密定位
     - 品質檢驗
     - 客製化設計
+
+- id: 17
+  title: 模組化壁掛收納系統
+  category: functional
+  category_name: 功能配件
+  icon: "🔧"
+  image: modular-wall-storage.jpg
+  page: /wall-storage.html                # 作品介紹專頁
+  # 使用 ParaBlock（Owen来造，Standard Digital File License）製作，授權不允許販售成品，因此不放蝦皮連結
+  article: /blog/2026/11/14/modular-wall-storage-before-after.html
+  desc: 用 ParaBlock 參數化收納系統打造的一面工具牆
+  detail: 使用 Owen来造 設計的 ParaBlock 參數化收納系統，為自家工具牆實際製作的作品。網格面板以連接件拼接固定，牆面多大就拼多大；掛架、層板、置物盒依照實際工具的尺寸調整參數後列印，電動工具、電池、螺絲起子、噴罐各有專屬位置。此作品為實作展示，不提供代印販售。
+  specs:
+    - ParaBlock 系統
+    - 模組化拼接
+    - 參數化掛架
+    - 實作展示
 
 - id: 2
   title: 車泊排風扇（可調風向＋晴雨罩）
