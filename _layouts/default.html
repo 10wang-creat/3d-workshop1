@@ -107,6 +107,12 @@
     }
 })();
 
+// 手機快速導覽：目前頁面的按鈕捲到看得見的位置
+(function () {
+    var active = document.querySelector('.nav-quick a.active');
+    if (active) active.parentNode.scrollLeft = active.offsetLeft - 16;
+})();
+
 // 進場動畫
 function observeElements() {
     var observer = new IntersectionObserver(function (entries) {

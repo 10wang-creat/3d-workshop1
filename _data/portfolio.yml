@@ -27,6 +27,7 @@
   category_name: 客製化治具
   icon: "🏭"
   image: inspection-carrier.jpg
+  page: /jigs.html                        # 連到客製治具頁
   desc: 精密檢驗載體，用於產品掃描檢驗的定位治具
   detail: 專業的產品檢驗載體，具有精確的凹槽設計，可將產品固定在特定位置進行掃描檢驗。確保檢驗過程的一致性和準確性，廣泛應用於品質控制流程。可依照需求客製化設計。
   specs:

@@ -16,6 +16,14 @@
         </nav>
         <button class="hamburger" id="hamburger" aria-label="開啟選單" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
     </div>
+    <nav class="nav-quick" aria-label="快速導覽">
+        <a href="{{ site.baseurl }}/#portfolio">作品集</a>
+        <a href="{{ site.baseurl }}/blog.html"{% if page.url == "/blog.html" or page.layout == "post" %} class="active" aria-current="page"{% endif %}>知識庫</a>
+        <a href="{{ site.baseurl }}/jigs.html"{% if page.url == "/jigs.html" %} class="active" aria-current="page"{% endif %}>客製治具</a>
+        <a href="{{ site.baseurl }}/wall-storage.html"{% if page.url == "/wall-storage.html" %} class="active" aria-current="page"{% endif %}>壁掛收納</a>
+        <a href="{{ site.baseurl }}/pricing.html"{% if page.url == "/pricing.html" %} class="active" aria-current="page"{% endif %}>價格與FAQ</a>
+        <a href="{{ site.baseurl }}/#contact">聯絡我們</a>
+    </nav>
     <nav class="nav-mobile" id="navMobile" aria-label="行動版選單">
         <a href="{{ site.baseurl }}/#portfolio">作品集</a>
         <a href="{{ site.baseurl }}/jigs.html">客製治具</a>
