@@ -39,33 +39,21 @@
     - 客製化設計
 
 - id: 2
-  title: 車泊排風扇 - 可調風向
+  title: 車泊排風扇（可調風向＋晴雨罩）
   category: functional
   category_name: 功能配件
   icon: "🔧"
   image: van-fan-adjustable.jpg
-  desc: 可調式風向設計，車泊生活的完美通風解決方案
-  detail: 專為車泊生活設計的排風扇配件，具備可調式上下風向功能。綠色部分採用活動設計，可依需求調整通風角度，有效改善車內空氣流通。展示品以 PLA+ 製作；車用環境高溫又日曬，訂製時會改用耐熱耐候的 ASA 材質。
+  gallery:                                # 詳情視窗裡額外顯示的照片
+    - van-fan-rain-cover.jpg
+  shopee: https://shopee.tw/product/5380033/55452027324
+  desc: 可調風向的排風扇座，加上防雨晴雨罩，車泊通風一次到位
+  detail: 專為車泊生活設計的排風扇配件組。車內的風扇座可上下調整風向，依需求改變通風角度；車外的晴雨罩採雙通風口設計，下雨時也能保持通風、避免雨水進入車內。展示品的風扇座以 PLA+、晴雨罩以 ABS 製作；車用環境高溫又日曬，訂製時會建議改用耐熱耐候的 ASA 材質。
   specs:
     - 可調風向
-    - 車泊專用
-    - 展示品 PLA+
-    - 訂製建議 ASA
-
-- id: 3
-  title: 車泊排風扇 - 晴雨罩
-  category: functional
-  category_name: 功能配件
-  icon: "🔧"
-  image: van-fan-rain-cover.jpg
-  shopee: https://shopee.tw/product/5380033/55452027324
-  desc: 防雨通風兼具，車泊生活的實用配件
-  detail: 專業的車泊排風扇晴雨罩設計，有效防止雨水進入車內同時保持良好通風效果。雙通風口設計確保空氣流通順暢，黑色霧面處理美觀實用。展示品以 ABS 製作；需要長期日曬的使用情境，可改用更耐候的 ASA 材質。
-  specs:
-    - ABS材質
-    - 防雨設計
+    - 防雨晴雨罩
     - 雙通風口
-    - 霧面處理
+    - 訂製建議 ASA
 
 - id: 4
   title: 雙手錶充電器

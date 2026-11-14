@@ -406,3 +406,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .btn-shopee { background: #ee4d2d; color: #fff; }
 .btn-shopee:hover { background: #f05d40; transform: translateY(-2px); }
 .p-shopee-link, .modal-shopee-link { color: #d0391b !important; }
+.modal-gallery { display: flex; gap: 8px; padding: 8px 12px; background: var(--bg-secondary); }
+.modal-gallery picture { width: 180px; flex-shrink: 0; }
+.modal-gallery img { width: 100%; height: 120px; object-fit: cover; border-radius: var(--radius-sm); display: block; }
