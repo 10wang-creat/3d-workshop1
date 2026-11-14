@@ -165,7 +165,19 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .p-desc { font-size: .88rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 14px; }
 .p-specs { display: flex; flex-wrap: wrap; gap: 6px; }
 .p-spec { font-size: .76rem; padding: 3px 10px; border-radius: 6px; background: var(--bg-secondary); color: var(--text-muted); border: 1px solid var(--border-light); font-weight: 500; }
-@media (max-width: 768px) { .portfolio-grid { grid-template-columns: 1fr; gap: 16px; } }
+/* 主打作品：獨佔一行，左邊完整直式照片、右邊說明 */
+.p-card[hidden] { display: none; }
+.p-card-featured { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 420px) 1fr; }
+.p-card-featured .p-image-wrap { height: auto; aspect-ratio: 3 / 4; }
+.p-card-featured .p-body { padding: 40px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
+.p-card-featured .p-title { font-size: 1.7rem; margin-bottom: 12px; }
+.p-card-featured .p-desc { font-size: 1rem; line-height: 1.8; margin-bottom: 20px; }
+.p-featured-badge { display: inline-block; padding: 4px 14px; border-radius: 50px; font-size: .78rem; font-weight: 700; margin-bottom: 12px; background: var(--accent-deep); color: #fff; }
+.p-featured-link { margin-top: 22px; font-weight: 700; color: var(--accent-deep); text-decoration: none; }
+.p-featured-link:hover { text-decoration: underline; }
+.modal-image.modal-image-tall { height: auto; background: var(--bg-secondary); }
+.modal-image.modal-image-tall img { width: auto; max-width: 100%; height: auto; max-height: 70vh; margin: 0 auto; object-fit: contain; }
+@media (max-width: 768px) { .portfolio-grid { grid-template-columns: 1fr; gap: 16px; } .p-card-featured { grid-template-columns: 1fr; } .p-card-featured .p-body { padding: 24px; } .p-card-featured .p-title { font-size: 1.35rem; } }
 
 /* ---------- 作品 Modal ---------- */
 .modal-overlay { position: fixed; inset: 0; z-index: 2000; background: rgba(47, 59, 82, .5); backdrop-filter: blur(12px); display: none; justify-content: center; align-items: center; padding: 24px; }
