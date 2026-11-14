@@ -2,6 +2,8 @@ title: 3D創想工坊
 description: 專業3D列印服務
 email: sstarfly@gmail.com
 line_id: spg
+# LINE 加好友連結（用 ID 加好友時，ID 前面要加 ~）
+line_url: "https://line.me/ti/p/~spg"
 # 蝦皮賣場網址：填入後，網站會顯示「在蝦皮購買」按鈕；留空則不顯示
 shopee_url: "https://shopee.tw/10wang"
 baseurl: "/3d-workshop1"

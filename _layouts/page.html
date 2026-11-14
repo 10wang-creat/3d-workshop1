@@ -16,7 +16,7 @@ layout: default
         <h3>{{ page.cta_title | default: "想聊聊你的需求？" }}</h3>
         <p>{{ page.cta_text | default: "免費諮詢，24小時內回覆報價" }}</p>
         <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-            <a href="https://line.me/ti/p/{{ site.line_id }}" target="_blank" rel="noopener" class="btn btn-line">💬 LINE 即時諮詢</a>
+            <a href="{{ site.line_url }}" target="_blank" rel="noopener" class="btn btn-line">💬 LINE 即時諮詢</a>
             <a href="{{ site.baseurl }}/#contact" class="btn btn-primary">線上詢問表單 →</a>
             {% assign shop_link = page.shopee | default: site.shopee_url %}{% if page.show_shopee and shop_link != "" %}<a href="{{ shop_link }}" target="_blank" rel="noopener" class="btn btn-shopee">🛒 蝦皮客製下單</a>{% endif %}
         </div>
