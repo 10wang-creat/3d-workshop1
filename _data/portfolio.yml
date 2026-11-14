@@ -55,18 +55,18 @@
     - 訂製建議 ASA
 
 - id: 4
-  title: 雙手錶充電器
+  title: 雙手錶充電架（三星 Galaxy Watch）
   category: functional
   category_name: 功能配件
   icon: "🔧"
   image: dual-watch-charger.jpg
   shopee: https://shopee.tw/product/5380033/47052056603
-  desc: 可同時充電兩支手錶的專用充電座
-  detail: 專業的雙手錶充電座，可同時為兩支智慧手錶充電。圓形凹槽設計完美貼合手錶，穩固不滑落。簡約白色設計，是桌面整理的完美解決方案。
+  desc: 放入三星手錶原本的充電盤，兩支錶一起充
+  detail: 為三星 Galaxy Watch 設計的雙錶充電架。把手錶原本的充電盤放進兩側圓形凹槽，充電線從底部走線收納，兩支錶可以同時充電，桌面也更整齊。其他品牌手錶可依充電盤尺寸調整凹槽。（Samsung、Galaxy Watch 為三星電子的商標，本作品為副廠配件。）
   specs:
     - PLA+材質
+    - 三星手錶適用
     - 雙錶充電
-    - 防滑設計
     - 桌面整理
 
 - id: 5
