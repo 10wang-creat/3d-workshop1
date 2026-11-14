@@ -1,0 +1,23 @@
+---
+layout: default
+---
+
+<header class="article-header">
+    <a href="{{ site.baseurl }}/" class="article-back">← 返回首頁</a>
+    {% if page.label %}<div class="article-meta"><span class="article-tag">{{ page.label }}</span></div>{% endif %}
+    <h1>{{ page.heading | default: page.title }}</h1>
+    {% if page.lead %}<p class="article-excerpt">{{ page.lead }}</p>{% endif %}
+</header>
+
+<article class="article-body page-body">
+    {{ content }}
+
+    <div class="article-cta">
+        <h3>{{ page.cta_title | default: "想聊聊你的需求？" }}</h3>
+        <p>{{ page.cta_text | default: "免費諮詢，24小時內回覆報價" }}</p>
+        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+            <a href="https://line.me/ti/p/{{ site.line_id }}" target="_blank" rel="noopener" class="btn btn-line">💬 LINE 即時諮詢</a>
+            <a href="{{ site.baseurl }}/#contact" class="btn btn-primary">線上詢問表單 →</a>
+        </div>
+    </div>
+</article>

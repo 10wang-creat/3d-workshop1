@@ -1,0 +1,34 @@
+# 每天定時觸發 Vercel 重新部署
+# 用途：讓「未來日期」的文章一到日子，也會出現在正式網域（3dcreativeworkshop.com）。
+# GitHub Pages 那邊由 jekyll.yml 每天重建；Vercel 只有 push 時才會重建，所以另外用這個檔案補上。
+#
+# 需要先設定一次：
+#   1. Vercel 專案 → Settings → Git → Deploy Hooks，建立一個 hook（分支填 main），複製產生的網址
+#   2. GitHub repo → Settings → Secrets and variables → Actions → New repository secret
+#      名稱填 VERCEL_DEPLOY_HOOK_URL，內容貼上剛剛的網址
+# 這個網址等同密碼，不要直接寫在檔案裡。
+name: Daily Vercel rebuild
+
+on:
+  # 16:20 UTC = 台灣時間隔天 00:20（比 GitHub Pages 的重建晚 10 分鐘）
+  schedule:
+    - cron: "20 16 * * *"
+  # 允許在 Actions 頁面手動按按鈕觸發
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Vercel deploy hook
+        env:
+          HOOK_URL: ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
+        run: |
+          if [ -z "$HOOK_URL" ]; then
+            echo "::error::尚未設定 VERCEL_DEPLOY_HOOK_URL，請依檔案開頭的說明新增 secret。"
+            exit 1
+          fi
+          curl --fail --silent --show-error -X POST "$HOOK_URL" > /dev/null
+          echo "已觸發 Vercel 重新部署"

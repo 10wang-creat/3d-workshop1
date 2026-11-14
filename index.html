@@ -62,7 +62,7 @@ description: 新竹專業3D列印服務。10年設計經驗，從概念到成品
                     {%- if item.featured %}
                     <p class="p-desc">{{ item.detail }}</p>
                     <div class="p-specs">{% for s in item.specs %}<span class="p-spec">{{ s }}</span>{% endfor %}</div>
-                    {% if item.article %}<a class="p-featured-link" href="{{ item.article | relative_url }}">看完整實作紀錄 →</a>{% endif %}
+                    <div class="p-featured-links">{% if item.page %}<a class="p-featured-link" href="{{ item.page | relative_url }}">看產品介紹 →</a>{% endif %}{% if item.article %}<a class="p-featured-link" href="{{ item.article | relative_url }}">看完整實作紀錄 →</a>{% endif %}</div>
                     {%- else %}
                     <p class="p-desc">{{ item.desc }}</p>
                     <div class="p-specs">{% for s in item.specs limit: 3 %}<span class="p-spec">{{ s }}</span>{% endfor %}</div>
@@ -78,7 +78,7 @@ description: 新竹專業3D列印服務。10年設計經驗，從概念到成品
     <div class="container">
         <div class="section-header reveal"><div class="section-label">Process</div><h2 class="section-heading">服務流程</h2><p class="section-desc">從構想到成品，清楚透明的合作流程</p></div>
         <div class="process-steps">
-            <div class="process-step reveal"><div class="step-number">01</div><div class="step-title">需求諮詢</div><div class="step-desc">透過 LINE / 電話 / Email 溝通需求，免費評估可行性</div></div>
+            <div class="process-step reveal"><div class="step-number">01</div><div class="step-title">需求諮詢</div><div class="step-desc">透過 LINE / Email 溝通需求，免費評估可行性</div></div>
             <div class="process-step reveal"><div class="step-number">02</div><div class="step-title">設計建模</div><div class="step-desc">專業 3D 繪圖設計，提供預覽確認，反覆修改到滿意</div></div>
             <div class="process-step reveal"><div class="step-number">03</div><div class="step-title">精密列印</div><div class="step-desc">選用最適材質，±0.1mm 精度列印，品質嚴格把關</div></div>
             <div class="process-step reveal"><div class="step-number">04</div><div class="step-title">交付驗收</div><div class="step-desc">24-72 小時快速交付，確認成品符合需求</div></div>
@@ -102,8 +102,8 @@ description: 新竹專業3D列印服務。10年設計經驗，從概念到成品
             <div class="feature-card reveal"><div class="feature-icon-wrap">⚡</div><div class="feature-title">快速交付</div><div class="feature-desc">24-72小時交付成品，急件可協調優先處理</div></div>
             <div class="feature-card reveal"><div class="feature-icon-wrap">🔧</div><div class="feature-title">多種材質</div><div class="feature-desc">PLA、PETG、ASA、ABS、樹脂，依使用環境建議最合適的材料</div></div>
             <div class="feature-card reveal"><div class="feature-icon-wrap">📐</div><div class="feature-title">高精度保證</div><div class="feature-desc">±0.1mm精度，滿足工業治具與精密零件需求</div></div>
-            <div class="feature-card reveal"><div class="feature-icon-wrap">💰</div><div class="feature-title">透明計價</div><div class="feature-desc">清楚報價無隱藏費用，提供免費初步評估</div></div>
-            <div class="feature-card reveal"><div class="feature-icon-wrap">🏭</div><div class="feature-title">工業等級服務</div><div class="feature-desc">檢驗治具、測試夾具等工業應用，品質值得信賴</div></div>
+            <div class="feature-card reveal"><div class="feature-icon-wrap">💰</div><div class="feature-title">透明計價</div><div class="feature-desc">清楚報價無隱藏費用，提供免費初步評估。<a class="inline-link" href="{{ '/pricing.html' | relative_url }}">看計價方式 →</a></div></div>
+            <div class="feature-card reveal"><div class="feature-icon-wrap">🏭</div><div class="feature-title">工業等級服務</div><div class="feature-desc">檢驗治具、測試夾具等工業應用，品質值得信賴。<a class="inline-link" href="{{ '/jigs.html' | relative_url }}">看治具服務 →</a></div></div>
         </div>
     </div>
 </section>
@@ -115,7 +115,6 @@ description: 新竹專業3D列印服務。10年設計經驗，從概念到成品
         <div class="contact-layout">
             <div class="contact-info reveal">
                 <a class="contact-card" href="https://line.me/ti/p/{{ site.line_id }}" target="_blank" rel="noopener"><div class="contact-icon contact-icon-line">💬</div><div><div class="contact-label">LINE</div><div class="contact-value">{{ site.line_id }}</div><div class="contact-hint">⚡ 最快回覆・點擊加好友</div></div></a>
-                <a class="contact-card" href="tel:{{ site.phone | remove: '-' }}"><div class="contact-icon contact-icon-phone">📞</div><div><div class="contact-label">電話</div><div class="contact-value">{{ site.phone }}</div><div class="contact-hint">點擊撥打</div></div></a>
                 <a class="contact-card" href="mailto:{{ site.email }}"><div class="contact-icon contact-icon-email">📧</div><div><div class="contact-label">Email</div><div class="contact-value">{{ site.email }}</div><div class="contact-hint">點擊發信</div></div></a>
                 <div class="file-note"><div style="font-weight:700;margin-bottom:4px;color:var(--text-primary)">📁 有現成 3D 檔案？</div><div style="font-size:.9rem;color:var(--text-secondary)">支援 STL / OBJ / 3MF 格式<br>透過 LINE 或 Email 傳送檔案即可報價</div></div>
             </div>
@@ -209,7 +208,7 @@ description: 新竹專業3D列印服務。10年設計經驗，從概念到成品
                 } else { throw new Error('bad status'); }
             })
             .catch(function () {
-                err.textContent = '送出失敗，請稍後再試，或直接以 LINE / 電話聯繫我們。';
+                err.textContent = '送出失敗，請稍後再試，或直接以 LINE / Email 聯繫我們。';
                 btn.disabled = false; btn.textContent = '送出詢問 →';
             });
     });

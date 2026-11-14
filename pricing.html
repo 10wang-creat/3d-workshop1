@@ -1,0 +1,63 @@
+---
+layout: page
+title: 價格與常見問題｜3D列印報價方式
+heading: 價格與常見問題
+label: 價格與FAQ
+description: 3D創想工坊的計價方式、報價流程與常見問題。沒有3D檔也能委託，一個也能做，免費初步評估，24小時內回覆報價。
+lead: 每個案子的大小、材質與設計難度都不同，所以採個別報價。這一頁說明費用由哪些項目組成、怎麼最快拿到報價，以及最常被問到的問題。
+cta_title: 想知道你的案子大概多少？
+cta_text: 免費初步評估，24小時內回覆報價
+---
+
+<h2>費用怎麼算</h2>
+<table>
+    <thead><tr><th>項目</th><th>說明</th></tr></thead>
+    <tbody>
+        <tr><td><strong>材料用量</strong></td><td>成品越大、越實心，用料越多</td></tr>
+        <tr><td><strong>列印時間</strong></td><td>尺寸越大、細節越精細，機台時間越長</td></tr>
+        <tr><td><strong>設計建模費</strong></td><td>需要從頭設計或逆向建模時才會計入；有現成檔案則不需要</td></tr>
+        <tr><td><strong>材料種類</strong></td><td>一般 PLA、PETG 到 ASA、ABS、樹脂，成本不同</td></tr>
+        <tr><td><strong>精度需求</strong></td><td>治具這類高精度需求，製作與檢查的成本較高</td></tr>
+        <tr><td><strong>後處理</strong></td><td>打磨、上色等加工另外計費</td></tr>
+        <tr><td><strong>數量</strong></td><td>同一件做多個，單價通常有調整空間</td></tr>
+    </tbody>
+</table>
+<p>過往案件的金額從 NT$350 起，到 NT$15,000 以上都有，主要差在尺寸、材質，以及是否需要設計。報價會把各項目列清楚，確認後才開始製作。</p>
+
+{% if site.data.pricing_examples and site.data.pricing_examples.size > 0 %}
+<h2>價格範例</h2>
+<table>
+    <thead><tr><th>項目</th><th>服務範圍</th><th>參考價格</th></tr></thead>
+    <tbody>
+        {% for e in site.data.pricing_examples %}<tr><td>{{ e.item }}</td><td>{{ e.scope }}</td><td><strong>{{ e.price }}</strong></td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+<p>以上為參考價格，實際費用依個案報價。</p>
+{% endif %}
+
+<h2>怎麼最快拿到報價</h2>
+<p>把下面的資訊一次給我們，就能直接報價，不用來回詢問：</p>
+<ul>
+    <li><strong>用途</strong>：這個東西要拿來做什麼、用在哪裡</li>
+    <li><strong>尺寸</strong>：大概的長寬高，或需要配合的關鍵尺寸</li>
+    <li><strong>數量</strong>：要做幾個</li>
+    <li><strong>使用環境</strong>：室內或戶外、會不會碰水、高溫、受力</li>
+    <li><strong>時程</strong>：什麼時候需要</li>
+    <li><strong>參考資料</strong>：3D 檔（STL / OBJ / 3MF）、照片或草圖</li>
+</ul>
+<p>透過 <a href="https://line.me/ti/p/{{ site.line_id }}" target="_blank" rel="noopener">LINE</a>、<a href="mailto:{{ site.email }}">Email</a> 或<a href="{{ site.baseurl }}/#contact">線上詢問表單</a>都可以。完整的委託流程請看<a href="{{ '/blog/2026/09/02/how-to-commission-3d-printing.html' | relative_url }}">委託客製3D列印怎麼開始</a>。</p>
+
+<h2>常見問題</h2>
+<div class="faq-list">
+    {% for f in site.data.faq %}
+    <details class="faq-item">
+        <summary>{{ f.q }}</summary>
+        <div class="faq-answer"><p>{{ f.a }}{% if f.link %} <a href="{{ f.link | relative_url }}">延伸閱讀：{{ f.link_text }}</a>{% endif %}</p></div>
+    </details>
+    {% endfor %}
+</div>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{% for f in site.data.faq %}{"@type":"Question","name":{{ f.q | jsonify }},"acceptedAnswer":{"@type":"Answer","text":{{ f.a | jsonify }}}}{% unless forloop.last %},{% endunless %}{% endfor %}]}
+</script>

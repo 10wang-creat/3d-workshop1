@@ -1,0 +1,71 @@
+---
+layout: page
+title: 客製化治具設計與3D列印｜新竹
+heading: 客製化治具設計與製作
+label: 客製治具
+description: 新竹在地的客製化治具設計與3D列印服務。檢驗治具、定位治具、組裝輔助治具，從需求訪談、建模、試做到交件，一個也能做。
+lead: 產線上還在靠手感對位、買不到現成工具的環節，可以用客製治具解決。我們從聽懂現場問題開始，設計、試做、修正到交件，同一個窗口完成。
+cta_title: 產線上有想解決的環節？
+cta_text: 把現場的狀況告訴我們，免費評估可行性，24小時內回覆
+---
+
+<h2>我們做哪些治具</h2>
+<div class="page-cards">
+    <div class="page-card"><h3>檢驗治具與載體</h3><p>把產品固定在同一個位置，供掃描、量測或目檢使用，讓每一次檢驗的條件一致。</p></div>
+    <div class="page-card"><h3>定位與放置治具</h3><p>零件放上去就對位，加上防呆設計，避免放反或放偏。</p></div>
+    <div class="page-card"><h3>組裝輔助治具</h3><p>固定工件、空出雙手，讓組裝動作更穩定，也更好教給新人。</p></div>
+    <div class="page-card"><h3>測試夾具</h3><p>配合測試流程設計的固定與承載結構，方便快速放取。</p></div>
+</div>
+
+<h2>為什麼用 3D 列印做治具</h2>
+<ul>
+    <li><strong>修改快</strong>：治具通常要在現場試用後微調。3D 列印改完設計就能再印一版，不需要重新開模或排加工。</li>
+    <li><strong>一個也能做</strong>：沒有最低數量限制，適合少量多樣的產線與打樣階段。</li>
+    <li><strong>設計與製作同一個窗口</strong>：十年以上的 3D 建模經驗，從需求訪談到成品都由我們處理，溝通不用轉手。</li>
+</ul>
+<blockquote><p>3D 列印治具不是每個場合都適合。需要長時間承受高溫、重負載或高磨耗的位置，金屬加工治具會更耐用。我們會在評估時直接告訴你適不適合。</p></blockquote>
+
+<h2>案例</h2>
+{% for c in site.data.cases %}
+<div class="case-card{% unless c.image %} no-image{% endunless %}">
+    {% if c.image %}<img src="{{ '/assets/images/' | append: c.image | relative_url }}" alt="{{ c.title }}" width="800" height="600" loading="lazy">{% endif %}
+    <div class="case-body">
+        <h3>{{ c.title }}</h3>
+        {% if c.industry %}<div class="case-industry">{{ c.industry }}</div>{% endif %}
+        <dl>
+            <dt>遇到的問題</dt><dd>{{ c.need }}</dd>
+            <dt>設計做法</dt><dd>{{ c.design }}</dd>
+            <dt>材質</dt><dd>{{ c.material }}</dd>
+            <dt>成果</dt><dd>{{ c.result }}</dd>
+        </dl>
+        {% if c.metrics %}<div class="case-metrics">{% for m in c.metrics %}<span>{{ m }}</span>{% endfor %}</div>{% endif %}
+    </div>
+</div>
+{% endfor %}
+<p>想了解一個治具從問題到成品的完整過程，可以看<a href="{{ '/blog/2026/08/26/jig-design-case-study.html' | relative_url }}">治具設計案例解析</a>。</p>
+
+<h2>合作流程</h2>
+<ol>
+    <li><strong>需求訪談</strong>：先了解零件外型與公差、這道工序在做什麼、誰操作、現場環境如何。治具好不好用，大半決定在這一步。</li>
+    <li><strong>設計建模</strong>：設計定位結構、防呆、拿取空間與清潔性，提供 3D 預覽給你確認。</li>
+    <li><strong>試做與修正</strong>：先印出原型，請現場實際試用，依回饋調整後再印一版。</li>
+    <li><strong>定案交件</strong>：依使用強度與頻率選定材質，製作所需數量。</li>
+</ol>
+
+<h2>詢價前可以先準備</h2>
+<ul>
+    <li>零件的圖檔、照片或實體樣品，以及關鍵尺寸與容許公差</li>
+    <li>這個治具要用在哪一道工序、要解決什麼問題</li>
+    <li>使用頻率與操作方式（單手或雙手、是否戴手套）</li>
+    <li>現場環境：溫度、是否有油或粉屑、是否有靜電防護要求</li>
+    <li>需要的數量與希望的時程</li>
+</ul>
+<p>資料不齊也沒關係，可以先聯絡，我們會一項一項跟你確認。涉及產品機密的案子，我們配合保密需求。計價方式請看<a href="{{ '/pricing.html' | relative_url }}">價格與常見問題</a>。</p>
+
+<h2>延伸閱讀</h2>
+<ul>
+{% assign jig_posts = site.posts | where: "category", "產業應用" %}
+{% for post in jig_posts limit: 5 %}
+    <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+{% endfor %}
+</ul>
