@@ -13,6 +13,7 @@
   featured: true                          # 主打作品：獨佔一行、顯示完整直式照片
   featured_image: wall-storage-after.jpg  # 主打用的完整照片（直式 3:4）
   page: /wall-storage.html                # 產品介紹專頁
+  shopee: https://shopee.tw/product/5380033/40286791507
   article: /blog/2026/11/14/modular-wall-storage-before-after.html
   desc: 比洞洞板更有彈性的壁掛收納，市售洞洞板配件也能直接用
   detail: 自行設計的模組化壁掛收納系統。網格面板以連接件拼接固定，牆面多大就拼多大，之後也能再擴充。掛架、層板、置物盒都依照實際工具的外型量身設計，電動工具、電池、螺絲起子、噴罐各有專屬位置，拿取歸位一目了然。網格規格相容市面上的洞洞板配件，原有的掛勾可以繼續使用。可依您的工具與牆面尺寸客製規劃。
@@ -57,6 +58,7 @@
   category_name: 功能配件
   icon: "🔧"
   image: van-fan-rain-cover.jpg
+  shopee: https://shopee.tw/product/5380033/55452027324
   desc: 防雨通風兼具，車泊生活的實用配件
   detail: 專業的車泊排風扇晴雨罩設計，有效防止雨水進入車內同時保持良好通風效果。雙通風口設計確保空氣流通順暢，黑色霧面處理美觀實用。展示品以 ABS 製作；需要長期日曬的使用情境，可改用更耐候的 ASA 材質。
   specs:
@@ -71,6 +73,7 @@
   category_name: 功能配件
   icon: "🔧"
   image: dual-watch-charger.jpg
+  shopee: https://shopee.tw/product/5380033/47052056603
   desc: 可同時充電兩支手錶的專用充電座
   detail: 專業的雙手錶充電座，可同時為兩支智慧手錶充電。圓形凹槽設計完美貼合手錶，穩固不滑落。簡約白色設計，是桌面整理的完美解決方案。
   specs:
@@ -127,6 +130,7 @@
   category_name: 功能配件
   icon: "🔧"
   image: switch-cooling-stand.jpg
+  shopee: https://shopee.tw/product/5380033/48752056414
   desc: 遊戲主機散熱充電二合一，提升遊戲體驗
   detail: 專為Nintendo Switch設計的充電散熱座，散熱孔設計有效降低主機溫度，同時支援穩定充電。精準的角度設計讓遊戲體驗更舒適。
   specs:
