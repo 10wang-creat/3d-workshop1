@@ -2,6 +2,20 @@
 # 欄位：id / title / category / category_name / desc(短) / detail(長) / specs(清單) / image / icon
 # category 對應標籤色：production / functional / decorative / creative
 
+- id: 17
+  title: 模組化壁掛收納系統
+  category: functional
+  category_name: 功能配件
+  icon: "🔧"
+  image: modular-wall-storage.jpg
+  desc: 比洞洞板更有彈性的壁掛收納，市售洞洞板配件也能直接用
+  detail: 自行設計的模組化壁掛收納系統。網格面板以連接件拼接固定，牆面多大就拼多大，之後也能再擴充。掛架、層板、置物盒都依照實際工具的外型量身設計，電動工具、電池、螺絲起子、噴罐各有專屬位置，拿取歸位一目了然。網格規格相容市面上的洞洞板配件，原有的掛勾可以繼續使用。可依您的工具與牆面尺寸客製規劃。
+  specs:
+    - 模組化拼接
+    - 相容洞洞板配件
+    - 工具專屬掛架
+    - 可客製擴充
+
 - id: 1
   title: 檢驗載體製作
   category: production
